@@ -1,14 +1,16 @@
-create_palette <- function(image, n_colors=5, choice=mean, volume=FALSE){
-  cut_image_list <- list("red"=image[,,1], "green"=image[,,2], "blue"=image[,,3])
+create_palette <- function(image, n, choice=mean, volume=FALSE){
+  image_list <- list("red"=image[,,1], "green"=image[,,2], "blue"=image[,,3])
+  cut_image_list <- list()
+  if(n == 1) return(rgb(mean(image_list$red), mean(image_list$green), mean(image_list$blue)))
 
   iter <- 1
-  while(iter < n_colors*2 & length(cut_image_list) < n_colors){
+  while(iter < n*2 & length(cut_image_list) < n){
     #Get volume box for first iteration
     #to decide which extent to cut
     if(iter == 1){
-      vboxes <- vbox(cut_image_list)
+      vboxes <- vbox(image_list)
       #Cut the image using the median cut algorithm
-      cut_image_list <- median_cut(cut_image_list, vboxes, iter = iter)
+      cut_image_list <- median_cut(image_list, vboxes, iter = iter)
 
     } else {
 
@@ -57,7 +59,7 @@ create_palette <- function(image, n_colors=5, choice=mean, volume=FALSE){
 
   }
 
-  return(unlist(lapply(cut_image_list, function(x) rgb(choice(x$red), choice(x$green), choice(x$blue)) )))
+  return(unname(unlist(lapply(cut_image_list, function(x) rgb(choice(x$red), choice(x$green), choice(x$blue)) ))))
 
 
 }
