@@ -81,7 +81,7 @@ vbox <- function(im){
 test_im_vbox <- vbox(testlist)
 median_cut <- function(im, im_vbox, iter=1){
 
-  #split vbox on largest extent
+  #find color which splits vbox on largest extent
   #Sample to randomly shuffle,
   #meaningful when there is a tie in maximum extents
   cut_color <- which.max(sample(im_vbox[["ext"]]))
