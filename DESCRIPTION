@@ -1,13 +1,13 @@
 Package: rPalette
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1
+Title: Extract the Colors from Images
+Version: 0.0.1
 Date: 2015-12-08
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Joel Carlson
+Maintainer: Joel Carlson <jnkcarlson@gmail.com>
+Description: A pure R implementation of the median cut algorithm.
+    Extracts the dominant colors from and image, and turns them into
+    a scale that cna be used in plots.     
+License: MIT + file LICENSE
 LazyData: TRUE
 Suggests: testthat
-LinkingTo: Rcpp
-Imports: Rcpp
