@@ -2,10 +2,14 @@
 % Please edit documentation in R/scale_image.R
 \name{scale_color_image}
 \alias{scale_color_image}
+\alias{scale_colour_image}
 \alias{scale_fill_image}
 \title{Image color scales}
 \usage{
 scale_color_image(..., image, n = 5, choice = mean, volume = FALSE,
+  discrete = TRUE)
+
+scale_colour_image(..., image, n = 5, choice = mean, volume = FALSE,
   discrete = TRUE)
 
 scale_fill_image(..., image, n = 5, choice = mean, volume = FALSE,

@@ -38,6 +38,10 @@ scale_color_image <- function(..., image, n=5, choice=mean, volume=FALSE, discre
   }
 }
 
+#' @rdname scale_image
+#' @export
+scale_colour_image <- scale_color_image
+
 
 #' Image color scales
 #'
