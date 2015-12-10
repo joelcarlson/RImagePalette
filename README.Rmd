@@ -65,7 +65,7 @@ p + theme_bw() + scale_color_image(image=desert)
 
 Often times, discrete scales aren't what you need. Using `discrete = FALSE` in the scale, we can use linear interpolation to create a reasonable scale.
 
-```{r}
+```{r desertplotcontinuous}
 p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) + geom_point(size=3)
 p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3) # 'n' is the number of colors extracted from the image
 ```
@@ -77,7 +77,7 @@ It is also simple to create palettes from an image using the `create_palette()` 
 ```{r, echo=FALSE}
 set.seed(17)
 ```
-```{r}
+```{r lifeaquaticscale}
 library(scales)
 lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 display_image(lifeAquatic)
@@ -89,14 +89,14 @@ we can play with the settings to tweak the scale to our liking:
 ```{r, echo=FALSE}
 set.seed(17)
 ```
-```{r}
+```{r lifeaquaticscale2}
 lifeAquaticPalette <- create_palette(lifeAquatic, n=9, choice=median, volume=TRUE)
 scales::show_col(lifeAquaticPalette)
 ```
 
 If it contains colors we like, we can pick and choose, and use them in a manual scale:
 
-```{r}
+```{r lifeaquaticbar}
 p <- ggplot(data = iris, aes(x=Species, y=Sepal.Width, fill=Species)) + geom_bar(stat="identity")
 p + theme_bw() + scale_fill_manual(values=lifeAquaticPalette[c(2,3,6)])
 ```

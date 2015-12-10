@@ -60,7 +60,7 @@ p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) +
 p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3) # 'n' is the number of colors extracted from the image
 ```
 
-![](figs/README/unnamed-chunk-5-1.png)
+![](figs/README/desertplotcontinuous-1.png)
 
 Viewing Palettes
 ================
@@ -73,13 +73,13 @@ lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 display_image(lifeAquatic)
 ```
 
-![](figs/README/unnamed-chunk-7-1.png)
+![](figs/README/lifeaquaticscale-1.png)
 
 ``` r
 scales::show_col(create_palette(lifeAquatic, n=9))
 ```
 
-![](figs/README/unnamed-chunk-7-2.png)
+![](figs/README/lifeaquaticscale-2.png)
 
 we can play with the settings to tweak the scale to our liking:
 
@@ -88,7 +88,7 @@ lifeAquaticPalette <- create_palette(lifeAquatic, n=9, choice=median, volume=TRU
 scales::show_col(lifeAquaticPalette)
 ```
 
-![](figs/README/unnamed-chunk-9-1.png)
+![](figs/README/lifeaquaticscale2-1.png)
 
 If it contains colors we like, we can pick and choose, and use them in a manual scale:
 
@@ -97,7 +97,7 @@ p <- ggplot(data = iris, aes(x=Species, y=Sepal.Width, fill=Species)) + geom_bar
 p + theme_bw() + scale_fill_manual(values=lifeAquaticPalette[c(2,3,6)])
 ```
 
-![](figs/README/unnamed-chunk-10-1.png)
+![](figs/README/lifeaquaticbar-1.png)
 
 Just for fun
 ============
