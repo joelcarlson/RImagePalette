@@ -34,9 +34,6 @@ First, load your image:
 
 ``` r
 desert <- jpeg::readJPEG("figs/Desert.jpg")
-```
-
-``` r
 display_image(desert)
 ```
 
@@ -51,7 +48,7 @@ p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Species)) + geom
 p + theme_bw() + scale_color_image(image=desert)
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertDiscrete.png" height="50%" width="50%" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertDiscrete.png" />
 
 Images as Continuous Scales
 ===========================
@@ -60,10 +57,11 @@ Often times, discrete scales aren't what you need. Using `discrete = FALSE` in t
 
 ``` r
 p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) + geom_point(size=3)
-p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3) # 'n' is the number of colors extracted from the image
+# n is the number of colors extracted from the image
+p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3) 
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertContinuous.png" height="50%" width="50%" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertContinuous.png" />
 
 Viewing Palettes
 ================
@@ -95,12 +93,12 @@ p <- ggplot(data = iris, aes(x=Species, y=Sepal.Width, fill=Species)) + geom_bar
 p + theme_bw() + scale_fill_manual(values=lifeAquaticPalette[c(2,3,6)])
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticBars.png" height="50%" width="50%" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticBars.png" />
 
 Just for fun
 ============
 
-You didn't think I forgot about old Bill and celery plate complexion, did you?
+You didn't think I forgot about old Bill and his celery plate complexion, did you?
 
 We can swap colors across images using the `switch_colors()` function:
 
