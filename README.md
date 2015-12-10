@@ -109,7 +109,11 @@ We can swap colors across images using the `switch_colors()` function:
 ``` r
 celery <- jpeg::readJPEG("figs/CeleryLunch.jpg")
 billMurray <- jpeg::readJPEG("figs/BillMurray.jpg")
+```
 
+![](figs/README/celandbill-1.png)
+
+``` r
 switch_colors(billMurray, celery, source_colors = 5)
 ```
 
