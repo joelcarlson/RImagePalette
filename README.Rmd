@@ -66,6 +66,8 @@ p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Species)) + geom
 p + theme_bw() + scale_color_image(image=desert)
 ```
 
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertDiscrete.jpg" height="50%" width="50%" />
+
 #Images as Continuous Scales
 
 Often times, discrete scales aren't what you need. Using `discrete = FALSE` in the scale, we can use linear interpolation to create a reasonable scale.
@@ -74,6 +76,8 @@ Often times, discrete scales aren't what you need. Using `discrete = FALSE` in t
 p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) + geom_point(size=3)
 p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3) # 'n' is the number of colors extracted from the image
 ```
+
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertContinuous.jpg" height="50%" width="50%" />
 
 #Viewing Palettes
 
@@ -89,6 +93,8 @@ display_image(lifeAquatic)
 scales::show_col(create_palette(lifeAquatic, n=9))
 ```
 
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticScale.jpg" height="50%" width="50%" />
+
 we can play with the settings to tweak the scale to our liking: 
 
 ```{r, echo=FALSE}
@@ -99,6 +105,8 @@ lifeAquaticPalette <- create_palette(lifeAquatic, n=9, choice=median, volume=TRU
 scales::show_col(lifeAquaticPalette)
 ```
 
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticScaleTweak.jpg" height="50%" width="50%" />
+
 If it contains colors we like, we can pick and choose, and use them in a manual scale:
 
 ```{r lifeaquaticbar, eval=FALSE}
@@ -106,6 +114,7 @@ p <- ggplot(data = iris, aes(x=Species, y=Sepal.Width, fill=Species)) + geom_bar
 p + theme_bw() + scale_fill_manual(values=lifeAquaticPalette[c(2,3,6)])
 ```
 
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticBars.jpg" height="50%" width="50%" />
 
 #Just for fun
 
@@ -127,9 +136,14 @@ display_image(celery)
 display_image(billMurray)
 par(mfrow=c(1,1), mar=c(0,0,0,0))
 ```
+
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill.jpg" height="50%" width="50%" />
+
 ```{r celerybill, eval=FALSE}
 switch_colors(billMurray, celery, source_colors = 5)
 ```
+
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celerifiedBill.jpg" height="50%" width="50%" />
 
 Let's see what Barack Obama might look like on the 4th of July this year:
 
@@ -144,13 +158,18 @@ obama <- jpeg::readJPEG("figs/Obama.jpg")
 switch_colors(obama, america, source_colors=4, smoothness=100)
 ```
 
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Obamerica.jpg" height="50%" width="50%" />
 
 
-#Inspiration:
+###Special Thanks
 
-https://github.com/lokesh/color-thief/blob/master/src/color-thief.js
+There are a number of projects that inspired, and helped this project along, and they deserve some recognition:
 
-https://github.com/karthik/wesanderson
+[color-thief.js](http://lokeshdhakar.com/projects/color-thief/) by [Lokesh Dhakar](http://lokeshdhakar.com).
 
-http://www.r-bloggers.com/towards-yet-another-r-colour-palette-generator-step-one-quentin-tarantino/
+[Wes Anderson Palettes](https://github.com/karthik/wesanderson) by [Karthik Ram](http://inundata.org).
+
+And [this post](http://www.r-bloggers.com/towards-yet-another-r-colour-palette-generator-step-one-quentin-tarantino/) from [Jo Fai Chow](http://www.jofaichow.co.uk/).
+
+Thank you all for your great work!
 

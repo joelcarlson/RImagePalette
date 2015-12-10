@@ -40,7 +40,7 @@ desert <- jpeg::readJPEG("figs/Desert.jpg")
 display_image(desert)
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Desert.jpg" height="400px" width="300px" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Desert.jpg" height="50%" width="50%" />
 
 Then plot it using the new `scale_color_image`:
 
@@ -51,7 +51,7 @@ p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Species)) + geom
 p + theme_bw() + scale_color_image(image=desert)
 ```
 
-![](figs/README/desertplot-1.png)
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertDiscrete.jpg" height="50%" width="50%" />
 
 Images as Continuous Scales
 ===========================
@@ -63,7 +63,7 @@ p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) +
 p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3) # 'n' is the number of colors extracted from the image
 ```
 
-![](figs/README/desertplotcontinuous-1.png)
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertContinuous.jpg" height="50%" width="50%" />
 
 Viewing Palettes
 ================
@@ -74,15 +74,10 @@ It is also simple to create palettes from an image using the `create_palette()` 
 library(scales)
 lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 display_image(lifeAquatic)
-```
-
-![](figs/README/lifeaquaticscale-1.png)
-
-``` r
 scales::show_col(create_palette(lifeAquatic, n=9))
 ```
 
-![](figs/README/lifeaquaticscale-2.png)
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticScale.jpg" height="50%" width="50%" />
 
 we can play with the settings to tweak the scale to our liking:
 
@@ -91,7 +86,7 @@ lifeAquaticPalette <- create_palette(lifeAquatic, n=9, choice=median, volume=TRU
 scales::show_col(lifeAquaticPalette)
 ```
 
-![](figs/README/lifeaquaticscale2-1.png)
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticScaleTweak.jpg" height="50%" width="50%" />
 
 If it contains colors we like, we can pick and choose, and use them in a manual scale:
 
@@ -100,7 +95,7 @@ p <- ggplot(data = iris, aes(x=Species, y=Sepal.Width, fill=Species)) + geom_bar
 p + theme_bw() + scale_fill_manual(values=lifeAquaticPalette[c(2,3,6)])
 ```
 
-![](figs/README/lifeaquaticbar-1.png)
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticBars.jpg" height="50%" width="50%" />
 
 Just for fun
 ============
@@ -114,29 +109,32 @@ celery <- jpeg::readJPEG("figs/CeleryLunch.jpg")
 billMurray <- jpeg::readJPEG("figs/BillMurray.jpg")
 ```
 
-![](figs/README/celandbill-1.png)
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill.jpg" height="50%" width="50%" />
 
 ``` r
 switch_colors(billMurray, celery, source_colors = 5)
 ```
 
-![](figs/README/celerybill-1.png)
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celerifiedBill.jpg" height="50%" width="50%" />
 
 Let's see what Barack Obama might look like on the 4th of July this year:
 
 ``` r
 america <- jpeg::readJPEG("figs/AmericanFlag.jpg")
 obama <- jpeg::readJPEG("figs/Obama.jpg")
-switch_colors(obama, america, source_colors=5)
+switch_colors(obama, america, source_colors=4, smoothness=100)
 ```
 
-![](figs/README/obamerica-1.png)
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Obamerica.jpg" height="50%" width="50%" />
 
-Inspiration:
-============
+### Special Thanks
 
-<https://github.com/lokesh/color-thief/blob/master/src/color-thief.js>
+There are a number of projects that inspired, and helped this project along, and they deserve some recognition:
 
-<https://github.com/karthik/wesanderson>
+[color-thief.js](http://lokeshdhakar.com/projects/color-thief/) by [Lokesh Dhakar](http://lokeshdhakar.com).
 
-<http://www.r-bloggers.com/towards-yet-another-r-colour-palette-generator-step-one-quentin-tarantino/>
+[Wes Anderson Palettes](https://github.com/karthik/wesanderson) by [Karthik Ram](http://inundata.org).
+
+And [this post](http://www.r-bloggers.com/towards-yet-another-r-colour-palette-generator-step-one-quentin-tarantino/) from [Jo Fai Chow](http://www.jofaichow.co.uk/).
+
+Thank you all for your great work!
