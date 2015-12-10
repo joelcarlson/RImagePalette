@@ -72,6 +72,11 @@ It is also simple to create palettes from an image using the `create_palette()` 
 library(scales)
 lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 display_image(lifeAquatic)
+```
+
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/LifeAquatic.jpg" />
+
+``` r
 scales::show_col(create_palette(lifeAquatic, n=9))
 ```
 
