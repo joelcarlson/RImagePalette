@@ -7,7 +7,7 @@
 #' based on the red, green, and blue extents (difference between
 #' maximum and minimum within-color values).
 #'
-#' The algorithm take the side with the largest extent (extent information
+#' The algorithm takes the side with the largest extent (extent information
 #' is passed in via the \code{vbox()} parameter),
 #' and splits the cube along the median value.
 #'

@@ -12,6 +12,26 @@ knitr::opts_chunk$set(
 )
 ```
 
+#RImagePalette: Extract colors from an image, and use it in plots or for fun!
+
+The `RImagePalette` package lets you use the colors from an image you like to create pretty plots. 
+
+The release version of this package is available from [CRAN](https://cran.r-project.org/web/packages/RImagePalette/index.html) using:
+
+```{r,eval=FALSE}
+install.packages("RImagePalette")
+```
+
+Or you can install the development version of the package using:
+
+```{r,echo=FALSE, message=FALSE}
+devtools::load_all(".")
+```
+```{r, eval=FALSE}
+devtools::install_github("joelcarlson/RImagePalette")
+
+library(RImagePalette)
+```
 
 
 #Inspiration:

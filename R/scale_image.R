@@ -47,7 +47,7 @@ scale_color_image <- function(..., image, n=5, choice=mean, volume=FALSE, discre
 #' number of colors. All other arguments are as to
 #' \link[ggplot2]{scale_fill_gradientn} or \link[ggplot2]{scale_color_gradientn}.
 #'
-#' See \link[create_palette]{create_palette} for more information on the color scale.
+#' See \link{create_palette} for more information on the color scale.
 #'
 #' @param ... parameters to \code{discrete_scale} or \code{scale_fill_gradientn}
 #' @param image pass through parameter to \code{create_palette}
@@ -58,8 +58,8 @@ scale_color_image <- function(..., image, n=5, choice=mean, volume=FALSE, discre
 #' @param volume pass through parameter to \code{create_palette}
 #' @param discrete generate a discrete palette? (default: \code{FALSE} - generate continuous palette)
 #' @rdname scale_image
-#' @seealso \code{\link[median_cut]{median_cut}} \code{\link[create_palette]{crete_palette}} \code{\link[vbox]{vbox}}
-#' \code{\link[display_image]{display_image}}
+#' @seealso \code{\link{median_cut}} \code{\link{create_palette}} \code{\link{vbox}}
+#' \code{\link{display_image}}
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
 #' @export
 #' @examples

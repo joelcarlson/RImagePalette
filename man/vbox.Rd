@@ -21,6 +21,6 @@ from red, green, and blue color channels.
 For passing to \code{median_cut()}.
 }
 \seealso{
-\code{\link[median_cut]{median_cut}} \code{\link[create_palette]{create_palette}}
+\code{\link{median_cut}} \code{\link{create_palette}}
 }
 

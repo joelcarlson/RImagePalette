@@ -34,7 +34,7 @@ For \code{discrete == TRUE} (the default) the function will return a \code{discr
 number of colors. All other arguments are as to
 \link[ggplot2]{scale_fill_gradientn} or \link[ggplot2]{scale_color_gradientn}.
 
-See \link[create_palette]{create_palette} for more information on the color scale.
+See \link{create_palette} for more information on the color scale.
 }
 \examples{
 \dontrun{
@@ -58,7 +58,7 @@ d + scale_color_image(image = your_image, discrete=FALSE) + theme_bw()
 }
 }
 \seealso{
-\code{\link[median_cut]{median_cut}} \code{\link[create_palette]{crete_palette}} \code{\link[vbox]{vbox}}
-\code{\link[display_image]{display_image}}
+\code{\link{median_cut}} \code{\link{create_palette}} \code{\link{vbox}}
+\code{\link{display_image}}
 }
 

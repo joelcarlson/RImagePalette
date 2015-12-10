@@ -29,7 +29,7 @@ Image palette function
 }
 \details{
 Uses the median cut algorithm to create \code{n} discrete colors based on colors
-present in an image. See \code{\link[median_cut]{median_cut}} for more details.
+present in an image. See \code{\link{median_cut}} for more details.
 }
 \examples{
 \dontrun{

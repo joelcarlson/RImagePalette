@@ -3,7 +3,7 @@
 #' Image palette function
 #'
 #' Uses the median cut algorithm to create \code{n} discrete colors based on colors
-#' present in an image. See \code{\link[median_cut]{median_cut}} for more details.
+#' present in an image. See \code{\link{median_cut}} for more details.
 #'
 #' @param image Matrix The image from which the palette will be extracted from. Should
 #' be a 3 (or more) dimensional matrix. The output of functions such as \code{readJPG()}
@@ -18,7 +18,7 @@
 #' choose the cube based on which cube contains the largest extent (that is, the largest range
 #' of some color). When \code{volume = TRUE}, the cube with the largest volume is chosen to split.
 #' Occasionally, setting to \code{TRUE} returns a better palette.
-#'@seealso \code{\link{median_cut}}
+#' @seealso \code{\link{median_cut}}
 #' @export
 #' @examples
 #' \dontrun{
