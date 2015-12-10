@@ -13,20 +13,18 @@ knitr::opts_chunk$set(
 par(mar=c(0,0,0,0), mai=c(0,0,0,0))
 ```
 
-Ever wonder what Bill Murray might look like if he were the same colors as a bowl of celery?
+Ever wonder what Bill Murray might look like if he consisted of the same colors as a bowl of celery?
 
-Perhaps you've been curious about how you might convert the colors of your ggplots into those of your favorite desert vista... 
+Perhaps you've been curious about how to make your ggplots resemble your favorite desert vista... 
 
-What if I told you these daily quandaries had been solved?
-
-**Search no more, for here lay your answers! Read on to discover the answers to these questions, and more!**
+*Search no more, for here lay your answers! Read on to discover the solutions to these daily quandaries!*
 
 #RImagePalette
-##Extract colors from an image, then use them in plots or for fun!
+###Extract colors from an image, then use them in plots or for fun!
 
-The `RImagePalette` package is a pure R implementation of the median cut algorithm. This package lets you use the colors from an image you like to create pretty plots, or to swap colors from one image to another. 
+The `RImagePalette` package is a pure R implementation of the median cut algorithm for extracting the dominant colors from images. This package lets you use the colors from an image you like to create pretty plots, or to swap colors from one image to another. 
 
-Note: There is an element of randomness in the median cut algorithm, so set your seeds carefully, and try running the algorithm a few times if you aren't happy with the scale.
+Note: There is an element of randomness in the median cut algorithm, so set your seeds carefully, and try running the algorithm a few times if you aren't happy with the results.
 
 This package is available from [CRAN](https://cran.r-project.org/web/packages/RImagePalette/index.html) using:
 
@@ -40,7 +38,7 @@ devtools::load_all(".")
 
 #Images as Scales
 
-Here's a common situation: you've just made a plot using your favorite plotting package, `ggplot2`, but just can't find the right colors to represent the points. While contemplating your dilemma, your mind drifts off to this wonderful photo of the desert you took last week. What should you do?
+Here's a common situation: you've just made a plot using your favorite plotting package, `ggplot2`, but just can't find the right colors to represent the points. While contemplating your dilemma, your mind drifts off to a wonderful photo of the desert you took last week. What should you do?
 
 Why not combine the two thoughts? The `RImagePalette` package let's you do just that:
 
@@ -75,7 +73,7 @@ set.seed(104)
 
 ```{r desertplotcontinuous, eval=FALSE}
 p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) + geom_point(size=3)
-# n is the number of colors extracted from the image
+# n is the (optional) number of colors extracted from the image
 p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3) 
 ```
 
@@ -83,10 +81,11 @@ p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3)
 
 #Viewing Palettes
 
-It is also simple to create palettes from an image using the `create_palette()` function. Let's use the `show_col` function from `scales` to take a look:
+It's simple to create palettes from an image using the `create_palette()` function. Let's use the `show_col` function from `scales` to take a look:
 
 ```{r, echo=FALSE}
 set.seed(17)
+lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 ```
 ```{r lifeaquaticscale, eval=FALSE}
 library(scales)
@@ -94,13 +93,17 @@ lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 display_image(lifeAquatic)
 ```
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/LifeAquaticCrop.jpg" />
+```{r}
+lifeAquaticPalette <- create_palette(lifeAquatic, n=9)
+lifeAquaticPalette
+```
 ```{r, eval=FALSE}
-scales::show_col(create_palette(lifeAquatic, n=9))
+scales::show_col())
 ```
 
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticScale.png" height="50%" width="50%" />
 
-we can play with the settings to tweak the scale to our liking: 
+Not happy with the results? We can tweak some settings until the scale is to our liking: 
 
 ```{r, echo=FALSE}
 set.seed(17)
@@ -151,7 +154,6 @@ switch_colors(billMurray, celery, source_colors = 5)
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celerifiedBill.png" height="50%" width="50%" />
 
 Let's see what Barack Obama might look like on the 4th of July this year:
-
 
 ```{r, echo=FALSE}
 set.seed(10)
