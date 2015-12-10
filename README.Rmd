@@ -47,8 +47,20 @@ Why not combine the two thoughts? The `RImagePalette` package let's you do just 
 First, load your image:
 ```{r desert}
 desert <- jpeg::readJPEG("figs/Desert.jpg")
+```
+```{r, eval=FALSE}
 display_image(desert)
 ```
+
+```{r echo=FALSE, message=FALSE, eval=FALSE}
+library(jpeg)
+library(grid)
+library(RCurl)
+img <- readJPEG(getURLContent("https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Desert.jpg"))
+grid.raster(img)
+``` 
+
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Desert.jpg" height="400px" width="300px" />
 
 ```{r,echo=FALSE}
 set.seed(103)

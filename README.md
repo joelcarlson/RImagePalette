@@ -34,10 +34,13 @@ First, load your image:
 
 ``` r
 desert <- jpeg::readJPEG("figs/Desert.jpg")
+```
+
+``` r
 display_image(desert)
 ```
 
-![](figs/README/desert-1.png)
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Desert.jpg" height="400px" width="300px" />
 
 Then plot it using the new `scale_color_image`:
 
