@@ -52,22 +52,14 @@ desert <- jpeg::readJPEG("figs/Desert.jpg")
 display_image(desert)
 ```
 
-```{r echo=FALSE, message=FALSE, eval=FALSE}
-library(jpeg)
-library(grid)
-library(RCurl)
-img <- readJPEG(getURLContent("https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Desert.jpg"))
-grid.raster(img)
-``` 
-
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Desert.jpg" height="400px" width="300px" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Desert.jpg" height="50%" width="50%" />
 
 ```{r,echo=FALSE}
 set.seed(103)
 ```
 
 Then plot it using the new `scale_color_image`:
-```{r desertplot, message=FALSE}
+```{r desertplot, message=FALSE, eval=FALSE}
 #Create your plot, and use scale_color_image:
 library(ggplot2)
 p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Species)) + geom_point(size=3)
@@ -78,7 +70,7 @@ p + theme_bw() + scale_color_image(image=desert)
 
 Often times, discrete scales aren't what you need. Using `discrete = FALSE` in the scale, we can use linear interpolation to create a reasonable scale.
 
-```{r desertplotcontinuous}
+```{r desertplotcontinuous, eval=FALSE}
 p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) + geom_point(size=3)
 p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3) # 'n' is the number of colors extracted from the image
 ```
@@ -90,7 +82,7 @@ It is also simple to create palettes from an image using the `create_palette()` 
 ```{r, echo=FALSE}
 set.seed(17)
 ```
-```{r lifeaquaticscale}
+```{r lifeaquaticscale, eval=FALSE}
 library(scales)
 lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 display_image(lifeAquatic)
@@ -102,14 +94,14 @@ we can play with the settings to tweak the scale to our liking:
 ```{r, echo=FALSE}
 set.seed(17)
 ```
-```{r lifeaquaticscale2}
+```{r lifeaquaticscale2, eval=FALSE}
 lifeAquaticPalette <- create_palette(lifeAquatic, n=9, choice=median, volume=TRUE)
 scales::show_col(lifeAquaticPalette)
 ```
 
 If it contains colors we like, we can pick and choose, and use them in a manual scale:
 
-```{r lifeaquaticbar}
+```{r lifeaquaticbar, eval=FALSE}
 p <- ggplot(data = iris, aes(x=Species, y=Sepal.Width, fill=Species)) + geom_bar(stat="identity")
 p + theme_bw() + scale_fill_manual(values=lifeAquaticPalette[c(2,3,6)])
 ```
@@ -129,13 +121,13 @@ set.seed(10)
 celery <- jpeg::readJPEG("figs/CeleryLunch.jpg")
 billMurray <- jpeg::readJPEG("figs/BillMurray.jpg")
 ```
-```{r celandbill, echo=FALSE}
+```{r celandbill, echo=FALSE, eval=FALSE}
 par(mfrow=c(1,2), mar=c(0,0,0,0))
 display_image(celery)
 display_image(billMurray)
 par(mfrow=c(1,1), mar=c(0,0,0,0))
 ```
-```{r celerybill}
+```{r celerybill, eval=FALSE}
 switch_colors(billMurray, celery, source_colors = 5)
 ```
 
@@ -146,10 +138,10 @@ Let's see what Barack Obama might look like on the 4th of July this year:
 set.seed(10)
 ```
 
-```{r obamerica}
+```{r obamerica, eval=FALSE}
 america <- jpeg::readJPEG("figs/AmericanFlag.jpg")
 obama <- jpeg::readJPEG("figs/Obama.jpg")
-switch_colors(obama, america, source_colors=5)
+switch_colors(obama, america, source_colors=4, smoothness=100)
 ```
 
 

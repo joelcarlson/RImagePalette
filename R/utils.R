@@ -69,7 +69,7 @@ switch_colors <- function(target_image, source_image, source_colors=3, smoothnes
 
   #Flop the image about so that it displays in the correct orientation
   target_image <- t(target_image[dim(target_image[,,1])[1]:1,,1])
-  image(target_image, col=palette(smoothness), useRaster=TRUE, axes=F, ann=FALSE, asp=dim(target_image)[1]/dim(target_image)[1])
+  image(target_image, col=palette(smoothness), useRaster=TRUE, axes=F, ann=FALSE, asp=dim(target_image)[2]/dim(target_image)[1])
 }
 
 
