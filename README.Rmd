@@ -169,7 +169,7 @@ There are a number of projects that inspired, and helped this project along, and
 
 [Wes Anderson Palettes](https://github.com/karthik/wesanderson) by [Karthik Ram](http://inundata.org).
 
-And [this post](http://www.r-bloggers.com/towards-yet-another-r-colour-palette-generator-step-one-quentin-tarantino/) from [Jo Fai Chow](http://www.jofaichow.co.uk/).
+And [this post](http://blenditbayes.blogspot.com/2014/05/towards-yet-another-r-colour-palette.html) from [Jo Fai Chow](http://www.jofaichow.co.uk/).
 
 Thank you all for your great work!
 
