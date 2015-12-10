@@ -1,3 +1,31 @@
+#' Create image palette
+#'
+#' Image palette function
+#'
+#' Uses the median cut algorithm to create \code{n} discrete colors based on colors
+#' present in an image. See \code{\link[median_cut]{median_cut}} for more details.
+#'
+#' @param image Matrix The image from which the palette will be extracted from. Should
+#' be a 3 (or more) dimensional matrix. The output of functions such as \code{readJPG()}
+#' are suitable as \code{image}.
+#' @param n Integer The number of discrete colors to be extracted from the image.
+#' @param choice Function Defines how the color will be chosen from the final color cubes.
+#' The default choice is to take the \code{mean} value of the image cube, but other choices
+#' may return a subjectively superior scale. Try \code{median}, or \code{min}, or \code{max}, or
+#' whatever summary statistic suits your fancy.
+#' @param volume Logical volume controls the method for choosing which color cube to split
+#' at each iteration of the algorithm. The default choice (when \code{volume = FALSE}) is to
+#' choose the cube based on which cube contains the largest extent (that is, the largest range
+#' of some color). When \code{volume = TRUE}, the cube with the largest volume is chosen to split.
+#' Occasionally, setting to \code{TRUE} returns a better palette.
+#'@seealso \code{\link{median_cut}}
+#' @export
+#' @examples
+#' \dontrun{
+#' library(scales); library(jpeg)
+#' your_image <- readJPEG("path/to/your/image.jpg")
+#' show_col(create_palette(your_image)(10))
+#' }
 create_palette <- function(image, n, choice=mean, volume=FALSE){
   image_list <- list("red"=image[,,1], "green"=image[,,2], "blue"=image[,,3])
   cut_image_list <- list()

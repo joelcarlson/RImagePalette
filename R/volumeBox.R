@@ -1,3 +1,16 @@
+#' Volume box
+#'
+#' Extract minimum, maximum, median, extent, and volume information
+#' from red, green, and blue color channels.
+#'
+#' For passing to \code{median_cut()}.
+#'
+#'
+#'  @param im List An image in list form, with three components: red, green, blue
+#'  @return A list containing the minimum, maximum, median, extent, and volume
+#'  of each component of the image
+#'
+#'  @seealso \code{\link[median_cut]{median_cut}} \code{\link[create_palette]{create_palette}}
 vbox <- function(im){
   #Red
   r1 <- min(im$red)
