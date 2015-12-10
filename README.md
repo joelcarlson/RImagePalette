@@ -74,7 +74,7 @@ lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 display_image(lifeAquatic)
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/LifeAquatic.jpg" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/LifeAquaticCrop.jpg" />
 
 ``` r
 scales::show_col(create_palette(lifeAquatic, n=9))
