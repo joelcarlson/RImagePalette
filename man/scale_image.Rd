@@ -14,64 +14,51 @@ scale_fill_image(..., image, n = 5, choice = mean, volume = FALSE,
 \arguments{
 \item{...}{parameters to \code{discrete_scale} or \code{scale_fill_gradientn}}
 
-\item{discrete}{generate a discrete palette? (default: \code{FALSE} - generate continuous palette)}
+\item{image}{pass through parameter to \code{create_palette}}
 
-\item{alpha}{pass through parameter to \code{viridis}}
+\item{n}{For continuous color scales, you may optionally pass in an integer, n.
+This allows some control over the scale, if n is too large the scale has too many
+colors and ceases to be meaningul. n = 3 to n = 5 is recommended.}
+
+\item{choice}{pass through parameter to \code{create_palette}}
+
+\item{volume}{pass through parameter to \code{create_palette}}
+
+\item{discrete}{generate a discrete palette? (default: \code{FALSE} - generate continuous palette)}
 }
 \description{
 Uses the image color scale.
 }
 \details{
-For \code{discrete == FALSE} (the default) all other arguments are as to
+For \code{discrete == TRUE} (the default) the function will return a \code{discrete_scale} with the plot-computed
+number of colors. All other arguments are as to
 \link[ggplot2]{scale_fill_gradientn} or \link[ggplot2]{scale_color_gradientn}.
-Otherwise the function will return a \code{discrete_scale} with the plot-computed
-number of colors.
 
-See \link[RImagePalette]{RImagePalette} for more information on the color scale.
+See \link[create_palette]{create_palette} for more information on the color scale.
 }
 \examples{
 \dontrun{
 library(ggplot2)
 
 # ripped from the pages of ggplot2
+your_image <- readJPEG("path/to/your/image.jpg")
+display_image(your_image)
 p <- ggplot(mtcars, aes(wt, mpg))
 p + geom_point(size=4, aes(colour = factor(cyl))) +
-    scale_color_viridis(discrete=TRUE) +
+    scale_color_image(image = your_image) +
     theme_bw()
 
 # ripped from the pages of ggplot2
 dsub <- subset(diamonds, x > 5 & x < 6 & y > 5 & y < 6)
 dsub$diff <- with(dsub, sqrt(abs(x-y))* sign(x-y))
 d <- ggplot(dsub, aes(x, y, colour=diff)) + geom_point()
-d + scale_color_viridis() + theme_bw()
+d + scale_color_image(image = your_image, discrete=FALSE) + theme_bw()
 
 
-# from the main viridis example
-dat <- data.frame(x = rnorm(10000), y = rnorm(10000))
-
-ggplot(dat, aes(x = x, y = y)) +
-  geom_hex() + coord_fixed() +
-  scale_fill_viridis() + theme_bw()
-
-library(ggplot2)
-library(MASS)
-library(gridExtra)
-
-data("geyser", package="MASS")
-
-ggplot(geyser, aes(x = duration, y = waiting)) +
-  xlim(0.5, 6) + ylim(40, 110) +
-  stat_density2d(aes(fill = ..level..), geom="polygon") +
-  theme_bw() +
-  theme(panel.grid=element_blank()) -> gg
-
-grid.arrange(
-  gg + scale_fill_viridis(option="A") + labs(x="Virdis A", y=NULL),
-  gg + scale_fill_viridis(option="B") + labs(x="Virdis B", y=NULL),
-  gg + scale_fill_viridis(option="C") + labs(x="Virdis C", y=NULL),
-  gg + scale_fill_viridis(option="D") + labs(x="Virdis D", y=NULL),
-  ncol=2, nrow=2
-)
 }
+}
+\seealso{
+\code{\link[median_cut]{median_cut}} \code{\link[create_palette]{crete_palette}} \code{\link[vbox]{vbox}}
+\code{\link[display_image]{display_image}}
 }
 
