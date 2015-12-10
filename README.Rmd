@@ -29,9 +29,14 @@ devtools::load_all(".")
 #Just for fun
 
 ```{r}
-america <- jpeg::readJPEG("/figs/AmericanFlag.jpg")
+america <- jpeg::readJPEG("figs/AmericanFlag.jpg")
 obama <- jpeg::readJPEG("figs/Obama.jpg")
 switch_colors(obama, sample(create_palette(america, choice=median, 4)))
+```
+```{r}
+gephy <- jpeg::readJPEG("figs/Gephyrocapsa.jpg")
+moon <- jpeg::readJPEG("figs/Moon.jpg")
+switch_colors(moon, sort(create_palette(gephy, choice=mean, 15, volume=TRUE)))
 ```
 #Inspiration:
 
