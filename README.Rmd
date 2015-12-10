@@ -37,6 +37,7 @@ switch_colors(obama, sample(create_palette(america, choice=median, 4)))
 gephy <- jpeg::readJPEG("figs/Gephyrocapsa.jpg")
 moon <- jpeg::readJPEG("figs/Moon.jpg")
 switch_colors(moon, sort(create_palette(gephy, choice=mean, 15, volume=TRUE)))
+switch_colors(gephy, sort(create_palette(moon, choice=mean, 3, volume=TRUE)))
 ```
 #Inspiration:
 
