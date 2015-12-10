@@ -21,7 +21,7 @@ display_image <- function(image){
 
 #' Display color palette
 #'
-#' Displays the created palette as a barchar with axis labels
+#' Displays the created palette as a barchart with axis labels
 #' representing hex values of the colors. A more attractive method
 #' for doing so would be to use \code{show_cols()} from
 #' \code{library(scales)}.
@@ -40,6 +40,27 @@ display_palette <- function(palette){
   barplot(rep(1, length(palette)), col=palette, names=palette, las=2, axes=F, ann=FALSE)
 }
 
+#' Swap Colors in an Image
+#'
+#' Swap the palette of an image!
+#'
+#' @param im Matrix An image matrix, such as the output from \code{readJPEG}
+#' that you wish to swap a different palette into.
+#' @param palette Vector The output of \code{create_palette}.
+#' @return The image, but with swapped colors!
+#' @export
+#' @examples
+#' \dontrun{
+#' library(jpeg)
+#' america <- jpeg::readJPEG("path/to/flagImage/AmericanFlag.jpg")
+#' obama <- jpeg::readJPEG("path/to/obamaImage/Obama.jpg")
+#' switch_colors(obama, sample(create_palette(america, choice=median, 4)))
+#' }
+switch_colors <- function(im, palette){
+  #Flop the image about so that it displays in the correct orientation
+  im <- t(im[dim(im[,,1])[1]:1,,1])
+  image(im, col=palette, useRaster=TRUE, axes=F, ann=FALSE)
+}
 
 
 

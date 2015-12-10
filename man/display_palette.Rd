@@ -13,7 +13,7 @@ display_palette(palette)
 A plot of the colors extracted from the image
 }
 \description{
-Displays the created palette as a barchar with axis labels
+Displays the created palette as a barchart with axis labels
 representing hex values of the colors. A more attractive method
 for doing so would be to use \code{show_cols()} from
 \code{library(scales)}.
