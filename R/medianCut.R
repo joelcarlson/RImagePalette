@@ -1,9 +1,9 @@
 #' The median cut algorithm
 #'
-#' Cut an rgb cube into two color cubes with similar numbers of
+#' Cut an rgb cube into two color cubes, each with as imilar number of
 #' elements.
 #'
-#' Represents the rgb colorpsace as a cube, with sides
+#' Represents the rgb colorspace as a cube, with side lengths
 #' based on the red, green, and blue extents (difference between
 #' maximum and minimum within-color values).
 #'
@@ -11,7 +11,7 @@
 #' is passed in via the \code{vbox()} parameter),
 #' and splits the cube along the median value.
 #'
-#' Both halves of the new image are returned.
+#' Both halves of the cube are then returned.
 #'
 #'  @param image List An image in list form, with three components: red, green, blue
 #'  @param vbox List The output of \code{vbox()} for the given image. A list of image parameters ("min", "max", "med", "ext" and "volume")

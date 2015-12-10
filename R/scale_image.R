@@ -78,7 +78,6 @@ scale_colour_image <- scale_color_image
 #'     scale_color_image(image = your_image) +
 #'     theme_bw()
 #'
-#' # ripped from the pages of ggplot2
 #' dsub <- subset(diamonds, x > 5 & x < 6 & y > 5 & y < 6)
 #' dsub$diff <- with(dsub, sqrt(abs(x-y))* sign(x-y))
 #' d <- ggplot(dsub, aes(x, y, colour=diff)) + geom_point()

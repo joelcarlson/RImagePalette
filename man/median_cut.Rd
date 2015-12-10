@@ -17,11 +17,11 @@ median_cut(image, vbox, iter = 1)
 Two new images in a list, each separated into rgb components
 }
 \description{
-Cut an rgb cube into two color cubes with similar numbers of
+Cut an rgb cube into two color cubes, each with as imilar number of
 elements.
 }
 \details{
-Represents the rgb colorpsace as a cube, with sides
+Represents the rgb colorspace as a cube, with side lengths
 based on the red, green, and blue extents (difference between
 maximum and minimum within-color values).
 
@@ -29,7 +29,7 @@ The algorithm takes the side with the largest extent (extent information
 is passed in via the \code{vbox()} parameter),
 and splits the cube along the median value.
 
-Both halves of the new image are returned.
+Both halves of the cube are then returned.
 }
 \seealso{
 \code{\link{vbox}} \code{\link{create_palette}}
