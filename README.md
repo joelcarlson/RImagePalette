@@ -1,6 +1,6 @@
 Ever wonder what Bill Murray might look like if he consisted of the same colors as a bowl of celery?
 
-Perhaps you've been curious about how to make your ggplots resemble your favorite desert vista...
+Perhaps you've been curious as to how you might make your ggplots resemble your favorite desert vista...
 
 *Search no more, for here lay your answers! Read on to discover the solutions to these daily quandaries!*
 
@@ -81,7 +81,7 @@ lifeAquaticPalette
 ```
 
 ``` r
-scales::show_col())
+scales::show_col(lifeAquaticPalette)
 ```
 
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticScale.png" height="50%" width="50%" />
