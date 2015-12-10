@@ -1,3 +1,11 @@
+Ever wonder what Bill Murray might look like if he were the same colors as a bowl of celery?
+
+Perhaps you've been curious about how that bowl of celery might look if it was, say, the color of the American flag...
+
+What if I told you these daily quandaries had been solved?
+
+**Search no more for you answers! Read on to discover the answers to these, and more!**
+
 RImagePalette: Extract colors from an image, and use it in plots or for fun!
 ============================================================================
 
@@ -16,18 +24,22 @@ Just for fun
 ``` r
 america <- jpeg::readJPEG("figs/AmericanFlag.jpg")
 obama <- jpeg::readJPEG("figs/Obama.jpg")
-switch_colors(obama, sample(create_palette(america, choice=median, 4)))
+switch_colors(obama, america, source_colors=5, smoothness=500)
 ```
 
 ![](figs/README-unnamed-chunk-4-1.png)
 
 ``` r
-gephy <- jpeg::readJPEG("figs/Gephyrocapsa.jpg")
-moon <- jpeg::readJPEG("figs/Moon.jpg")
-switch_colors(moon, sort(create_palette(gephy, choice=mean, 15, volume=TRUE)))
+celery <- jpeg::readJPEG("figs/Lunch.jpg")
+billMurray <- jpeg::readJPEG("figs/LifeAquatic.jpg")
+set.seed(10)
+switch_colors(billMurray, celery, source_colors = 5, choice=median)
 ```
 
-![](figs/README-unnamed-chunk-5-1.png) \#Inspiration:
+![](figs/README-unnamed-chunk-5-1.png)
+
+Inspiration:
+============
 
 <https://github.com/lokesh/color-thief/blob/master/src/color-thief.js>
 

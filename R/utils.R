@@ -44,9 +44,14 @@ display_palette <- function(palette){
 #'
 #' Swap the palette of an image!
 #'
-#' @param im Matrix An image matrix, such as the output from \code{readJPEG}
-#' that you wish to swap a different palette into.
-#' @param palette Vector The output of \code{create_palette}.
+#' @param target_image Matrix The image you wish to transfer colors into.
+#' The output from \code{readJPEG} is of suitable format.
+#' @param source_image Matrix The image you wish to transfer colors from.
+#' @param source_colors Integer The number of colors you wish to extract from the
+#' source image.
+#' @param smoothness Integer The source colors get interpolated so that the image
+#' doesn't appear blocky. The higher the value, the smoother the output.
+#' @param ... Pass any of the arguments for \code{create_palette}
 #' @return The image, but with swapped colors!
 #' @export
 #' @examples
@@ -54,12 +59,17 @@ display_palette <- function(palette){
 #' library(jpeg)
 #' america <- jpeg::readJPEG("path/to/flagImage/AmericanFlag.jpg")
 #' obama <- jpeg::readJPEG("path/to/obamaImage/Obama.jpg")
-#' switch_colors(obama, sample(create_palette(america, choice=median, 4)))
+#' switch_colors(obama, america)
 #' }
-switch_colors <- function(im, palette){
+switch_colors <- function(target_image, source_image, source_colors=3, smoothness=100, ...){
+  #Create palette from image
+  palette <- create_palette(source_image, n=source_colors, ...)
+  palette <- sort(palette)
+  palette <- colorRampPalette(colors=palette)
+
   #Flop the image about so that it displays in the correct orientation
-  im <- t(im[dim(im[,,1])[1]:1,,1])
-  image(im, col=palette, useRaster=TRUE, axes=F, ann=FALSE)
+  target_image <- t(target_image[dim(target_image[,,1])[1]:1,,1])
+  image(target_image, col=palette(smoothness), useRaster=TRUE, axes=F, ann=FALSE)
 }
 
 
