@@ -14,15 +14,15 @@ knitr::opts_chunk$set(
 
 Ever wonder what Bill Murray might look like if he were the same colors as a bowl of celery?
 
-Perhaps you've been curious about how that bowl of celery might look if it was, say, the color of the American flag... 
+Perhaps you've been curious about how your favorite plot might look if it was, say, the colors of your favorite desert vista... 
 
 What if I told you these daily quandaries had been solved?
 
-**Search no more, for here lay your answers! Read on to discover the answers to these, and more!**
+**Search no more, for here lay your answers! Read on to discover the answers to these questions, and more!**
 
 #RImagePalette: Extract colors from an image, and use it in plots or for fun!
 
-The `RImagePalette` package lets you use the colors from an image you like to create pretty plots. 
+The `RImagePalette` package lets you use the colors from an image you like to create pretty plots, or to swap colors from one image to another. 
 
 This package is available from [CRAN](https://cran.r-project.org/web/packages/RImagePalette/index.html) using:
 
@@ -34,7 +34,29 @@ library(RImagePalette)
 devtools::load_all(".")
 ```
 
+#Images as Scales
 
+Here's a common situation - you have made a plot using your favorite plotting package, `ggplot2`, but just can't find the right colors to represent the points. Simulataneously, you are thinking about this wonderful photo of the desert you took last week. What can you do?
+
+Why not combine the two? The `RImagePalette` package let's you do just that:
+
+First, load your image:
+```{r}
+desert <- jpeg::readJPEG("figs/Desert.jpg")
+display_image(desert)
+```
+
+```{r,echo=FALSE}
+set.seed(103)
+```
+
+Then plot it using the new `scale_color_image`:
+```{r, message=FALSE}
+#Create your plot, and use scale_color_image:
+library(ggplot2)
+p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Species)) + geom_point(size=3)
+p + theme_bw() + scale_color_image(image=desert)
+```
 
 #Just for fun
 
