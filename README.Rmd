@@ -69,6 +69,9 @@ p + theme_bw() + scale_color_image(image=desert)
 #Images as Continuous Scales
 
 Often times, discrete scales aren't what you need. Using `discrete = FALSE` in the scale, we can use linear interpolation to create a reasonable scale.
+```{r,echo=FALSE}
+set.seed(104)
+```
 
 ```{r desertplotcontinuous, eval=FALSE}
 p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) + geom_point(size=3)
