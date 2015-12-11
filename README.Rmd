@@ -46,49 +46,6 @@ library(RImagePalette)
 devtools::load_all(".")
 ```
 
-#Images as Scales
-
-Here's a common situation: you've just made a plot using your favorite plotting package, `ggplot2`, but just can't find the right colors to represent the points. While contemplating your dilemma, your mind drifts off to a wonderful photo of the desert you took last week. What should you do?
-
-Why not combine the two thoughts? The `RImagePalette` package let's you do just that:
-
-First, load your image:
-```{r desert, eval=FALSE}
-desert <- jpeg::readJPEG("figs/Desert.jpg")
-display_image(desert)
-```
-
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertCrop.png" />
-
-```{r,echo=FALSE}
-set.seed(103)
-```
-
-Then plot it using the new `scale_color_image`:
-```{r desertplot, message=FALSE, eval=FALSE}
-#Create your plot, and use scale_color_image:
-library(ggplot2)
-p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Species)) + geom_point(size=3)
-p + theme_bw() + scale_color_image(image=desert)
-```
-
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertDiscrete.png" />
-
-#Images as Continuous Scales
-
-Often times, discrete scales aren't what you need. Using `discrete = FALSE` in the scale, we can use linear interpolation to create a reasonable scale.
-```{r,echo=FALSE}
-set.seed(104)
-```
-
-```{r desertplotcontinuous, eval=FALSE}
-p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) + geom_point(size=3)
-# n is the (optional) number of colors extracted from the image
-p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3) 
-```
-
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertContinuous.png" />
-
 #Viewing Palettes
 
 It's simple to create palettes from an image using the `image_palette()` function. Let's use the `show_col` function from `scales` to take a look:
@@ -133,6 +90,49 @@ p + theme_bw() + scale_fill_manual(values=lifeAquaticPalette[c(2,3,6)])
 ```
 
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/lifeAquaticBars.png" />
+
+#Images as Scales
+
+Here's a common situation: you've just made a plot using your favorite plotting package, `ggplot2`, but just can't find the right colors to represent the points. While contemplating your dilemma, your mind drifts off to a wonderful photo of the desert you took last week. What should you do?
+
+Why not combine the two thoughts? The `RImagePalette` package let's you do just that:
+
+First, load your image:
+```{r desert, eval=FALSE}
+desert <- jpeg::readJPEG("figs/Desert.jpg")
+display_image(desert)
+```
+
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertCrop.png" />
+
+```{r,echo=FALSE}
+set.seed(103)
+```
+
+Then plot it using the new `scale_color_image`:
+```{r desertplot, message=FALSE, eval=FALSE}
+#Create your plot, and use scale_color_image:
+library(ggplot2)
+p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Species)) + geom_point(size=3)
+p + theme_bw() + scale_color_image(image=desert)
+```
+
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertDiscrete.png" />
+
+#Images as Continuous Scales
+
+Often times, discrete scales aren't what you need. Using `discrete = FALSE` in the scale, we can use linear interpolation to create a reasonable scale.
+```{r,echo=FALSE}
+set.seed(104)
+```
+
+```{r desertplotcontinuous, eval=FALSE}
+p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) + geom_point(size=3)
+# n is the (optional) number of colors extracted from the image
+p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3) 
+```
+
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertContinuous.png" />
 
 #Just for fun
 
