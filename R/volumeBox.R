@@ -10,7 +10,7 @@
 #'  @return A list containing the minimum, maximum, median, extent, and volume
 #'  of each component of the image
 #'
-#'  @seealso \code{\link{median_cut}} \code{\link{create_palette}}
+#'  @seealso \code{\link{median_cut}} \code{\link{image_palette}}
 vbox <- function(im){
   #Red
   r1 <- min(im$red)

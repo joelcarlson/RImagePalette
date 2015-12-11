@@ -26,7 +26,7 @@ display_image <- function(image){
 #' for doing so would be to use \code{show_cols()} from
 #' \code{library(scales)}.
 #'
-#' @param palette Vector The output of \code{create_palette}.
+#' @param palette Vector The output of \code{image_palette}.
 #' @return A plot of the colors extracted from the image
 #' @seealso \code{scales::show_cols()}
 #' @export
@@ -34,7 +34,7 @@ display_image <- function(image){
 #' \dontrun{
 #' library(jpeg)
 #' your_image <- readJPEG("path/to/your/image.jpg")
-#' display_palette(create_palette(your_image, n=5))
+#' display_palette(image_palette(your_image, n=5))
 #' }
 display_palette <- function(palette){
   barplot(rep(1, length(palette)), col=palette, names=palette, las=2, axes=F, ann=FALSE)
@@ -51,7 +51,7 @@ display_palette <- function(palette){
 #' source image.
 #' @param smoothness Integer The source colors get interpolated so that the image
 #' doesn't appear blocky. The higher the value, the smoother the output.
-#' @param ... Pass any of the arguments for \code{create_palette}
+#' @param ... Pass any of the arguments for \code{image_palette}
 #' @return The image, but with swapped colors!
 #' @export
 #' @examples
@@ -63,7 +63,7 @@ display_palette <- function(palette){
 #' }
 switch_colors <- function(target_image, source_image, source_colors=3, smoothness=100, ...){
   #Create palette from image
-  palette <- create_palette(source_image, n=source_colors, ...)
+  palette <- image_palette(source_image, n=source_colors, ...)
   palette <- sort(palette)
   palette <- colorRampPalette(colors=palette)
 

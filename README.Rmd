@@ -48,7 +48,7 @@ desert <- jpeg::readJPEG("figs/Desert.jpg")
 display_image(desert)
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Desert.jpg" height="50%" width="50%" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertCrop.jpg" />
 
 ```{r,echo=FALSE}
 set.seed(103)

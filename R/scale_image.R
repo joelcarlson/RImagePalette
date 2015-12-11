@@ -23,7 +23,7 @@
 #' }
 image_pal <- function(image, choice=mean, volume=FALSE) {
   function(n) {
-    create_palette(image, n, choice, volume)
+    image_palette(image, n, choice, volume)
   }
 }
 
@@ -34,7 +34,7 @@ scale_color_image <- function(..., image, n=5, choice=mean, volume=FALSE, discre
   if (discrete) {
     discrete_scale("colour", "image", image_pal(image, choice, volume), ...)
   } else {
-    scale_color_gradientn(colours = sort(create_palette(image, n, choice, volume)), ...)
+    scale_color_gradientn(colours = sort(image_palette(image, n, choice, volume)), ...)
   }
 }
 
@@ -51,18 +51,18 @@ scale_colour_image <- scale_color_image
 #' number of colors. All other arguments are as to
 #' \link[ggplot2]{scale_fill_gradientn} or \link[ggplot2]{scale_color_gradientn}.
 #'
-#' See \link{create_palette} for more information on the color scale.
+#' See \link{image_palette} for more information on the color scale.
 #'
 #' @param ... parameters to \code{discrete_scale} or \code{scale_fill_gradientn}
-#' @param image pass through parameter to \code{create_palette}
+#' @param image pass through parameter to \code{image_palette}
 #' @param n For continuous color scales, you may optionally pass in an integer, n.
 #' This allows some control over the scale, if n is too large the scale has too many
 #' colors and ceases to be meaningul. n = 3 to n = 5 is recommended.
-#' @param choice pass through parameter to \code{create_palette}
-#' @param volume pass through parameter to \code{create_palette}
+#' @param choice pass through parameter to \code{image_palette}
+#' @param volume pass through parameter to \code{image_palette}
 #' @param discrete generate a discrete palette? (default: \code{FALSE} - generate continuous palette)
 #' @rdname scale_image
-#' @seealso \code{\link{median_cut}} \code{\link{create_palette}} \code{\link{vbox}}
+#' @seealso \code{\link{median_cut}} \code{\link{image_palette}} \code{\link{vbox}}
 #' \code{\link{display_image}}
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
 #' @export
@@ -89,6 +89,6 @@ scale_fill_image <- function (..., image, n=5, choice=mean, volume=FALSE, discre
   if (discrete) {
     discrete_scale("fill", "image", image_pal(image, choice, volume), ...)
   } else {
-    scale_fill_gradientn(colours = sort(create_palette(image, n, choice, volume)), ...)
+    scale_fill_gradientn(colours = sort(image_palette(image, n, choice, volume)), ...)
   }
 }

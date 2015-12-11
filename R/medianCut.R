@@ -17,7 +17,7 @@
 #'  @param vbox List The output of \code{vbox()} for the given image. A list of image parameters ("min", "max", "med", "ext" and "volume")
 #'  @param iter Integer The number attached to the names of the two new images.
 #'  @return Two new images in a list, each separated into rgb components
-#'  @seealso \code{\link{vbox}} \code{\link{create_palette}}
+#'  @seealso \code{\link{vbox}} \code{\link{image_palette}}
 median_cut <- function(image, vbox, iter=1){
 
   #find color which splits vbox on largest extent
