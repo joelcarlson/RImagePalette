@@ -125,13 +125,13 @@ celery <- jpeg::readJPEG("figs/CeleryLunch.jpg")
 billMurray <- jpeg::readJPEG("figs/BillMurray.jpg")
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill.png" height="60%" width="60%" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill2.png" height="60%" width="60%" />
 
 ``` r
 switch_colors(billMurray, celery, source_colors = 10)
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celerifiedBill.png" height="50%" width="50%" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celerifiedBill2.png" height="50%" width="50%" />
 
 Well, maybe more "carrots and plate" complexion...
 
