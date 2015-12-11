@@ -125,7 +125,7 @@ celery <- jpeg::readJPEG("figs/CeleryLunch.jpg")
 billMurray <- jpeg::readJPEG("figs/BillMurray.jpg")
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill.png" height="50%" width="50%" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill.png" height="70%" width="70%" />
 
 ``` r
 switch_colors(billMurray, celery, source_colors = 10)
