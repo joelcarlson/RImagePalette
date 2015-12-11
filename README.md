@@ -27,8 +27,6 @@ devtools::install_github("joelcarlson/RImagePalette")
 library(RImagePalette)
 ```
 
-\`\`\`
-
 Viewing Palettes
 ================
 
@@ -125,7 +123,7 @@ celery <- jpeg::readJPEG("figs/CeleryLunch.jpg")
 billMurray <- jpeg::readJPEG("figs/BillMurray.jpg")
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill2.png" height="60%" width="60%" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill2.png" width="80%" />
 
 ``` r
 switch_colors(billMurray, celery, source_colors = 10)

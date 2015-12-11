@@ -41,7 +41,6 @@ library(RImagePalette)
 ```
 
 
-```
 ```{r,echo=FALSE, message=FALSE}
 devtools::load_all(".")
 ```
@@ -155,7 +154,7 @@ display_image(billMurray)
 par(mfrow=c(1,1), mar=c(0,0,0,0))
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill2.png" height="60%" width="60%" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill2.png" width="80%" />
 
 ```{r celerybill, eval=FALSE}
 switch_colors(billMurray, celery, source_colors = 10)
