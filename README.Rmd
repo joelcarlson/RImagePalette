@@ -81,7 +81,7 @@ p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3)
 
 #Viewing Palettes
 
-It's simple to create palettes from an image using the `create_palette()` function. Let's use the `show_col` function from `scales` to take a look:
+It's simple to create palettes from an image using the `image_palette()` function. Let's use the `show_col` function from `scales` to take a look:
 
 ```{r, echo=FALSE}
 set.seed(17)
@@ -94,7 +94,7 @@ display_image(lifeAquatic)
 ```
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/LifeAquaticCrop.jpg" />
 ```{r}
-lifeAquaticPalette <- create_palette(lifeAquatic, n=9)
+lifeAquaticPalette <- image_palette(lifeAquatic, n=9)
 lifeAquaticPalette
 ```
 ```{r, eval=FALSE}
@@ -109,7 +109,7 @@ Not happy with the results? We can tweak some settings until the scale is to our
 set.seed(17)
 ```
 ```{r lifeaquaticscale2, eval=FALSE}
-lifeAquaticPalette <- create_palette(lifeAquatic, n=9, choice=median, volume=TRUE)
+lifeAquaticPalette <- image_palette(lifeAquatic, n=9, choice=median, volume=TRUE)
 scales::show_col(lifeAquaticPalette)
 ```
 

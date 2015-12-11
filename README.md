@@ -34,7 +34,7 @@ desert <- jpeg::readJPEG("figs/Desert.jpg")
 display_image(desert)
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/Desert.jpg" height="50%" width="50%" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertCrop.jpg" />
 
 Then plot it using the new `scale_color_image`:
 
@@ -63,7 +63,7 @@ p + theme_bw() + scale_color_image(image=desert, discrete=FALSE, n=3)
 Viewing Palettes
 ================
 
-It's simple to create palettes from an image using the `create_palette()` function. Let's use the `show_col` function from `scales` to take a look:
+It's simple to create palettes from an image using the `image_palette()` function. Let's use the `show_col` function from `scales` to take a look:
 
 ``` r
 library(scales)
@@ -74,10 +74,10 @@ display_image(lifeAquatic)
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/LifeAquaticCrop.jpg" />
 
 ``` r
-lifeAquaticPalette <- create_palette(lifeAquatic, n=9)
+lifeAquaticPalette <- image_palette(lifeAquatic, n=9)
 lifeAquaticPalette
-#> [1] "#AAAC99" "#AC8A59" "#D0DFDB" "#E1D56F" "#ADA033" "#826A2A" "#3C7976"
-#> [8] "#373F2C" "#1A170E"
+#> [1] "#D0DFDB" "#E1D56F" "#AAAC98" "#AD8A57" "#ADA033" "#826A2A" "#3B7976"
+#> [8] "#373E2C" "#1A170E"
 ```
 
 ``` r
@@ -89,7 +89,7 @@ scales::show_col(lifeAquaticPalette)
 Not happy with the results? We can tweak some settings until the scale is to our liking:
 
 ``` r
-lifeAquaticPalette <- create_palette(lifeAquatic, n=9, choice=median, volume=TRUE)
+lifeAquaticPalette <- image_palette(lifeAquatic, n=9, choice=median, volume=TRUE)
 scales::show_col(lifeAquaticPalette)
 ```
 
