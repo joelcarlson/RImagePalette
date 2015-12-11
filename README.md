@@ -17,8 +17,17 @@ This package is available from [CRAN](https://cran.r-project.org/web/packages/RI
 
 ``` r
 install.packages("RImagePalette")
+```
+
+Or from github, using:
+
+``` r
+devtools::install_github("joelcarlson/RImagePalette")
+
 library(RImagePalette)
 ```
+
+\`\`\`
 
 Images as Scales
 ================
@@ -119,7 +128,7 @@ billMurray <- jpeg::readJPEG("figs/BillMurray.jpg")
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celeryBill.png" height="50%" width="50%" />
 
 ``` r
-switch_colors(billMurray, celery, source_colors = 5)
+switch_colors(billMurray, celery, source_colors = 10)
 ```
 
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celerifiedBill.png" height="50%" width="50%" />
