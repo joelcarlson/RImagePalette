@@ -1,4 +1,4 @@
-Ever wonder what Bill Murray might look like if he consisted of the same colors as a bowl of celery?
+Ever wonder what Bill Murray might look like if he consisted of the same colors as a plate of celery?
 
 Perhaps you've been curious as to how you might make your ggplots resemble your favorite desert vista...
 
@@ -34,7 +34,7 @@ desert <- jpeg::readJPEG("figs/Desert.jpg")
 display_image(desert)
 ```
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertCrop.jpg" />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertCrop.png" />
 
 Then plot it using the new `scale_color_image`:
 
@@ -123,6 +123,8 @@ switch_colors(billMurray, celery, source_colors = 5)
 ```
 
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celerifiedBill.png" height="50%" width="50%" />
+
+Well, maybe more "carrots and plate" complexion...
 
 Let's see what Barack Obama might look like on the 4th of July this year:
 
