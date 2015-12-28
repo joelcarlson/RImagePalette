@@ -1,6 +1,20 @@
 ## Release summary
 
-First release!
+Fixed issue with cran submission where several functions (barplot, colorRampPalette, image, median, rgb) were not imported from their respective packages.
+
+Specifically, added:
+
+  importFrom(grDevices,colorRampPalette)
+
+  importFrom(grDevices,rgb)
+
+  importFrom(graphics,barplot)
+
+  importFrom(graphics,image)
+
+  importFrom(stats,median)
+
+to NAMESPACE.
 
 ## Test environments
 
