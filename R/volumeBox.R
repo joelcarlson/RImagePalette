@@ -11,6 +11,7 @@
 #'  of each component of the image
 #'
 #'  @seealso \code{\link{median_cut}} \code{\link{image_palette}}
+#'@importFrom stats median
 vbox <- function(im){
   #Red
   r1 <- min(im$red)

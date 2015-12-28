@@ -36,6 +36,7 @@ display_image <- function(image){
 #' your_image <- readJPEG("path/to/your/image.jpg")
 #' display_palette(image_palette(your_image, n=5))
 #' }
+#'@importFrom graphics barplot
 display_palette <- function(palette){
   barplot(rep(1, length(palette)), col=palette, names=palette, las=2, axes=F, ann=FALSE)
 }
@@ -61,6 +62,8 @@ display_palette <- function(palette){
 #' obama <- jpeg::readJPEG("path/to/obamaImage/Obama.jpg")
 #' switch_colors(obama, america)
 #' }
+#'@importFrom graphics image
+#'@importFrom grDevices colorRampPalette
 switch_colors <- function(target_image, source_image, source_colors=3, smoothness=100, ...){
   #Create palette from image
   palette <- image_palette(source_image, n=source_colors, ...)
