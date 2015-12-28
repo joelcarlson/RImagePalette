@@ -3,12 +3,14 @@
 #' Image palette function
 #'
 #' @param image Matrix The image from which the palette will be extracted from. Should
-#' be a 3 (or more) dimensional matrix. The output of functions such as \code{readJPG()}
-#' are suitable as \code{image}.
+#' be a 3 (or more) dimensional matrix. The output of a function such as \code{readJPG()}
+#' or \code{readPNG()} are suitable as \code{image}.
+#'
 #' @param choice Function Defines how the color will be chosen from the final color cubes.
 #' The default choice is to take the \code{mean} value of the image cube, but other choices
 #' may return a subjectively superior scale. Try \code{median}, or \code{min}, or \code{max}, or
 #' whatever summary statistic suits your fancy.
+#'
 #' @param volume Logical volume controls the method for choosing which color cube to split
 #' at each iteration of the algorithm. The default choice (when \code{volume = FALSE}) is to
 #' choose the cube based on which cube contains the largest extent (that is, the largest range
@@ -54,12 +56,21 @@ scale_colour_image <- scale_color_image
 #' See \link{image_palette} for more information on the color scale.
 #'
 #' @param ... parameters to \code{discrete_scale} or \code{scale_fill_gradientn}
-#' @param image pass through parameter to \code{image_palette}
+#' @param image Matrix The image from which the palette will be extracted from. Should
+#' be a 3 (or more) dimensional matrix. The output of a function such as \code{readJPG()}
+#' or \code{readPNG()} are suitable as \code{image}.
 #' @param n For continuous color scales, you may optionally pass in an integer, n.
 #' This allows some control over the scale, if n is too large the scale has too many
 #' colors and ceases to be meaningul. n = 3 to n = 5 is recommended.
-#' @param choice pass through parameter to \code{image_palette}
-#' @param volume pass through parameter to \code{image_palette}
+#' @param choice Function Defines how the color will be chosen from the final color cubes.
+#' The default choice is to take the \code{mean} value of the image cube, but other choices
+#' may return a subjectively superior scale. Try \code{median}, or \code{min}, or \code{max}, or
+#' whatever summary statistic suits your fancy.
+#' @param volume Logical volume controls the method for choosing which color cube to split
+#' at each iteration of the algorithm. The default choice (when \code{volume = FALSE}) is to
+#' choose the cube which contains the largest extent (that is, the largest range
+#' of some color). When \code{volume = TRUE}, the cube with the largest volume is chosen to split.
+#' Occasionally, setting to \code{TRUE} returns a better palette.
 #' @param discrete generate a discrete palette? (default: \code{FALSE} - generate continuous palette)
 #' @rdname scale_image
 #' @seealso \code{\link{median_cut}} \code{\link{image_palette}} \code{\link{vbox}}

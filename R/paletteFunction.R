@@ -6,8 +6,8 @@
 #' present in an image. See \code{\link{median_cut}} for more details.
 #'
 #' @param image Matrix The image from which the palette will be extracted from. Should
-#' be a 3 (or more) dimensional matrix. The output of functions such as \code{readJPG()}
-#' are suitable as \code{image}.
+#' be a 3 (or more) dimensional matrix. The output of a function such as \code{readJPG()}
+#' or \code{readPNG()} are suitable as \code{image}.
 #' @param n Integer The number of discrete colors to be extracted from the image.
 #' @param choice Function Defines how the color will be chosen from the final color cubes.
 #' The default choice is to take the \code{mean} value of the image cube, but other choices
