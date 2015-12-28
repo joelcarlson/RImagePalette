@@ -89,7 +89,7 @@ p + theme_bw() + scale_color_image(image=desert)
 
 ``` r
 #Create plot
-p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Petal.Length)) + geom_point(size=3)
+p <- ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width, col=Sepal.Length)) + geom_point(size=3)
 #Use discrete=FALSE for a continuous scale
 p + theme_bw() + scale_color_image(image=desert, discrete=FALSE) 
 ```
