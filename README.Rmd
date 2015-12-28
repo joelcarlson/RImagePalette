@@ -28,8 +28,6 @@ Or from github, using:
 
 ```{r,eval=FALSE}
 devtools::install_github("joelcarlson/RImagePalette")
-
-library(RImagePalette)
 ```
 
 
@@ -46,6 +44,8 @@ set.seed(17)
 lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 ```
 ```{r lifeaquaticscale, eval=FALSE}
+library(RImagePalette)
+
 #Load an image
 lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 display_image(lifeAquatic)
@@ -54,7 +54,6 @@ display_image(lifeAquatic)
 ```{r}
 #Create a palette of 9 colors
 lifeAquaticPalette <- image_palette(lifeAquatic, n=9)
-lifeAquaticPalette
 ```
 ```{r, eval=FALSE}
 scales::show_col(lifeAquaticPalette)
@@ -155,15 +154,13 @@ switch_colors(billMurray, celery, source_colors = 10)
 
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celerifiedBill2.png" height="50%" width="50%" />
 
-Well, maybe more "carrots and plate" complexion...
-
 ###Note
 
 There is an element of randomness in the median cut algorithm, so set your seeds carefully, and try running the algorithm a few times if you aren't happy with the results.
 
 ###Special Thanks
 
-There are a number of projects that inspired, and helped this project along, and they deserve some recognition:
+There are a number of projects that inspired or helped this project along, and they deserve some recognition:
 
 [color-thief.js](http://lokeshdhakar.com/projects/color-thief/) by [Lokesh Dhakar](http://lokeshdhakar.com).
 

@@ -15,8 +15,6 @@ Or from github, using:
 
 ``` r
 devtools::install_github("joelcarlson/RImagePalette")
-
-library(RImagePalette)
 ```
 
 Viewing Palettes
@@ -25,6 +23,8 @@ Viewing Palettes
 It's simple to create palettes from an image using the `image_palette()` function:
 
 ``` r
+library(RImagePalette)
+
 #Load an image
 lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 display_image(lifeAquatic)
@@ -35,9 +35,6 @@ display_image(lifeAquatic)
 ``` r
 #Create a palette of 9 colors
 lifeAquaticPalette <- image_palette(lifeAquatic, n=9)
-lifeAquaticPalette
-#> [1] "#AAAC99" "#AC8A59" "#D0DFDB" "#E1D56F" "#ADA033" "#826A2A" "#3C7976"
-#> [8] "#373F2C" "#1A170E"
 ```
 
 ``` r
@@ -120,15 +117,13 @@ switch_colors(billMurray, celery, source_colors = 10)
 
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/celerifiedBill2.png" height="50%" width="50%" />
 
-Well, maybe more "carrots and plate" complexion...
-
 ### Note
 
 There is an element of randomness in the median cut algorithm, so set your seeds carefully, and try running the algorithm a few times if you aren't happy with the results.
 
 ### Special Thanks
 
-There are a number of projects that inspired, and helped this project along, and they deserve some recognition:
+There are a number of projects that inspired or helped this project along, and they deserve some recognition:
 
 [color-thief.js](http://lokeshdhakar.com/projects/color-thief/) by [Lokesh Dhakar](http://lokeshdhakar.com).
 
