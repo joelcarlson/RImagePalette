@@ -51,11 +51,9 @@ lifeAquatic <- jpeg::readJPEG("figs/LifeAquatic.jpg")
 display_image(lifeAquatic)
 ```
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/LifeAquaticCrop.jpg" />
-```{r}
+```{r, eval=FALSE}
 #Create a palette of 9 colors
 lifeAquaticPalette <- image_palette(lifeAquatic, n=9)
-```
-```{r, eval=FALSE}
 scales::show_col(lifeAquaticPalette)
 ```
 

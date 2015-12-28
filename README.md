@@ -35,9 +35,6 @@ display_image(lifeAquatic)
 ``` r
 #Create a palette of 9 colors
 lifeAquaticPalette <- image_palette(lifeAquatic, n=9)
-```
-
-``` r
 scales::show_col(lifeAquaticPalette)
 ```
 
