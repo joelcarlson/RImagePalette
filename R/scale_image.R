@@ -30,7 +30,7 @@ image_pal <- function(image, choice=mean, volume=FALSE) {
 #' @rdname scale_image
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
 #' @export
-scale_color_image <- function(..., image, n=5, choice=mean, volume=FALSE, discrete=TRUE) {
+scale_color_image <- function(..., image, n=3, choice=mean, volume=FALSE, discrete=TRUE) {
   if (discrete) {
     discrete_scale("colour", "image", image_pal(image, choice, volume), ...)
   } else {
@@ -85,7 +85,7 @@ scale_colour_image <- scale_color_image
 #'
 #'
 #' }
-scale_fill_image <- function (..., image, n=5, choice=mean, volume=FALSE, discrete=TRUE) {
+scale_fill_image <- function (..., image, n=3, choice=mean, volume=FALSE, discrete=TRUE) {
   if (discrete) {
     discrete_scale("fill", "image", image_pal(image, choice, volume), ...)
   } else {
