@@ -154,7 +154,7 @@ switch_colors(billMurray, celery, source_colors = 10)
 
 ###Note
 
-There is an element of randomness in the median cut algorithm, so set your seeds carefully, and try running the algorithm a few times if you aren't happy with the results.
+There is an element of randomness in the median cut algorithm, so set your seeds carefully, and try running the algorithm a few times if you aren't happy with the results. Other ways to alter the palette: try using `choice = median`, `volume = TRUE` or change the value of `n`.
 
 ###Special Thanks
 
