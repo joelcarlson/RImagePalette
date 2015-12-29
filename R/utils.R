@@ -9,11 +9,8 @@
 #' @return A raster image in the plot window.
 #' @export
 #' @examples
-#' \dontrun{
-#' library(jpeg)
-#' your_image <- readJPEG("path/to/your/image.jpg")
-#' display_image(your_image)
-#' }
+#' img <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
+#' display_image(img)
 display_image <- function(image){
   graphics::plot(1:2, type="n", axes=F, ylab='n', xlab='n', ann=FALSE)
   graphics::rasterImage(image, 1, 1, 2, 2)
@@ -31,11 +28,8 @@ display_image <- function(image){
 #' @seealso \code{scales::show_cols()}
 #' @export
 #' @examples
-#' \dontrun{
-#' library(jpeg)
-#' your_image <- readJPEG("path/to/your/image.jpg")
-#' display_palette(image_palette(your_image, n=5))
-#' }
+#' img <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
+#' display_palette(image_palette(img, n=5))
 #'@importFrom graphics barplot
 display_palette <- function(palette){
   barplot(rep(1, length(palette)), col=palette, names=palette, las=2, axes=F, ann=FALSE)
@@ -50,18 +44,19 @@ display_palette <- function(palette){
 #' @param source_image Matrix The image you wish to transfer colors from.
 #' @param source_colors Integer The number of colors you wish to extract from the
 #' source image.
-#' @param smoothness Integer The source colors get interpolated so that the image
-#' doesn't appear blocky. The higher the value, the smoother the output.
+#' @param smoothness Integer The source colors are interpolated such that the image
+#' doesn't appear blocky. The value of smoothness determines how many values are interpoloated
+#' between the source_colors. That is, smoothness determines the length of the palette used.
+#' Higher values return smoother images.
 #' @param ... Pass any of the arguments for \code{image_palette}
 #' @return The image, but with swapped colors!
 #' @export
 #' @examples
-#' \dontrun{
-#' library(jpeg)
-#' america <- jpeg::readJPEG("path/to/flagImage/AmericanFlag.jpg")
-#' obama <- jpeg::readJPEG("path/to/obamaImage/Obama.jpg")
-#' switch_colors(obama, america)
-#' }
+#' #Trivial example of using only 5 dominant colors
+#' # from an image to recolor itself
+#' img1 <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
+#' img2 <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
+#' switch_colors(img1, img2, source_colors=5, smoothness=20)
 #'@importFrom graphics image
 #'@importFrom grDevices colorRampPalette
 switch_colors <- function(target_image, source_image, source_colors=3, smoothness=100, ...){

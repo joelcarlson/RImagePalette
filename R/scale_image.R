@@ -18,11 +18,9 @@
 #' Occasionally, setting to \code{TRUE} returns a better palette.
 #' @export
 #' @examples
-#' \dontrun{
-#' library(scales); library(jpeg)
-#' your_image <- readJPEG("path/to/your/image.jpg")
-#' show_col(image_pal(your_image)(10))
-#' }
+#' img <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
+#' display_image(img)
+#' scales::show_col(image_pal(img)(10))
 image_pal <- function(image, choice=mean, volume=FALSE) {
   function(n) {
     image_palette(image, n, choice, volume)
@@ -78,24 +76,25 @@ scale_colour_image <- scale_color_image
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
 #' @export
 #' @examples
-#' \dontrun{
 #' library(ggplot2)
 #'
 #' # ripped from the pages of ggplot2
-#' your_image <- readJPEG("path/to/your/image.jpg")
+#' your_image <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
 #' display_image(your_image)
+#'
+#' #Discrete scale example
 #' p <- ggplot(mtcars, aes(wt, mpg))
 #' p + geom_point(size=4, aes(colour = factor(cyl))) +
 #'     scale_color_image(image = your_image) +
 #'     theme_bw()
 #'
+#' #Continuous scale example
 #' dsub <- subset(diamonds, x > 5 & x < 6 & y > 5 & y < 6)
 #' dsub$diff <- with(dsub, sqrt(abs(x-y))* sign(x-y))
 #' d <- ggplot(dsub, aes(x, y, colour=diff)) + geom_point()
 #' d + scale_color_image(image = your_image, discrete=FALSE) + theme_bw()
 #'
 #'
-#' }
 scale_fill_image <- function (..., image, n=3, choice=mean, volume=FALSE, discrete=TRUE) {
   if (discrete) {
     discrete_scale("fill", "image", image_pal(image, choice, volume), ...)

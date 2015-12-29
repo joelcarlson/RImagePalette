@@ -21,11 +21,9 @@
 #' @seealso \code{\link{median_cut}}
 #' @export
 #' @examples
-#' \dontrun{
-#' library(scales); library(jpeg)
-#' your_image <- readJPEG("path/to/your/image.jpg")
-#' show_col(image_palette(your_image)(10))
-#' }
+#' img <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
+#' display_image(img)
+#' scales::show_col(image_palette(img, n=5))
 #' @importFrom grDevices rgb
 image_palette <- function(image, n, choice=mean, volume=FALSE){
   image_list <- list("red"=image[,,1], "green"=image[,,2], "blue"=image[,,3])
@@ -92,29 +90,3 @@ image_palette <- function(image, n, choice=mean, volume=FALSE){
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
