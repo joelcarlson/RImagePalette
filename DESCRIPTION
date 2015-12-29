@@ -2,7 +2,7 @@ Package: RImagePalette
 Type: Package
 Title: Extract the Colors from Images
 Version: 0.1.0
-Date: 2015-12-08
+Date: 2015-12-29
 Author: Joel Carlson
 Maintainer: Joel Carlson <jnkcarlson@gmail.com>
 Description: A pure R implementation of the median cut algorithm.
