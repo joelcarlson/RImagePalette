@@ -1,6 +1,8 @@
 RImagePalette
 =============
 
+[![cran version](http://www.r-pkg.org/badges/version/RImagePalette)](http://cran.rstudio.com/web/packages/RImagePalette)
+
 ### Extract colors from an image, then use them in plots or for fun!
 
 The `RImagePalette` package is a pure R implementation of the median cut algorithm for extracting the dominant colors from an image. This package lets you use the colors from an image you like to create pretty plots, or to swap colors from one image to another.
