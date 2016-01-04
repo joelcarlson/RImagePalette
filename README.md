@@ -101,7 +101,7 @@ Quantizing Images
 
 *Note: This feature is experimental at the moment, and as such is non-optimized, and slow. You must install from github to access the `quantize_image` function*
 
-We can also quantize images using the `quantize_image` function:
+We can also quantize images into a discrete number of colors using the `quantize_image` function:
 
 ``` r
 #Load the famous mandrill
@@ -113,11 +113,11 @@ quant_mandrill <- quantize_image(mandrill, n=7)
 
 When displayed closely reproduces the original image:
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/mandrill_median7.png" width="75% /><br>
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/mandrill_median7.png" width="75%" />
 
 Another method for doing so is to use the kmeans approach, as discussed in [this blog post](http://blog.ryanwalker.us/2016/01/color-quantization-in-r.html) by [Ryan Walker](http://www.ms.uky.edu/~rwalker/). Here is the comparison between kmeans (on the left) and median cut (on the right) using 4 colors:
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/mandrill_median4k4.png" width="75% /><br>
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/mandrill_median4k4.png" width="75%" />
 
 Just for fun
 ============
