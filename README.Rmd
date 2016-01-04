@@ -141,14 +141,14 @@ quant_mandrill <- quantize_image(mandrill, n=7)
 
 When displayed closely reproduces the original image:
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/mandrill_median7.png" width="75% />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/mandrill_median7.png" width="75% /><br>
 
 Another method for doing so is to use the kmeans approach,
 as discussed in [this blog post](http://blog.ryanwalker.us/2016/01/color-quantization-in-r.html) by
 [Ryan Walker](http://www.ms.uky.edu/~rwalker/). Here is the comparison between kmeans
 (on the left) and median cut (on the right) using 4 colors:
 
-<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/mandrill_median4k4.png" width="75% />
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/mandrill_median4k4.png" width="75% /><br>
 
 #Just for fun
 
