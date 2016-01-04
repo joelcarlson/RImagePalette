@@ -1,8 +1,6 @@
 RImagePalette
 =============
 
-[![cran version](http://www.r-pkg.org/badges/version/RImagePalette)](http://cran.rstudio.com/web/packages/RImagePalette)
-
 ### Extract colors from an image, then use them in plots or for fun!
 
 The `RImagePalette` package is a pure R implementation of the median cut algorithm for extracting the dominant colors from an image. This package lets you use the colors from an image you like to create pretty plots, or to swap colors from one image to another.
@@ -98,6 +96,29 @@ p + theme_bw() + scale_color_image(image=desert, discrete=FALSE)
 
 <img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/desertContinuous.png" />
 
+Quantizing Images
+=================
+
+*Note: This feature is experimental at the moment, and as such is non-optimized, and slow. You must install from github to access the `quantize_image` function*
+
+We can also quantize images using the `quantize_image` function:
+
+``` r
+#Load the famous mandrill
+mandrill <- png::readPNG("figs/mandrill.png")
+
+#Quantize using 7 colors
+quant_mandrill <- quantize_image(mandrill, n=7)
+```
+
+When displayed closely reproduces the original image:
+
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/mandrill_median7.png" />
+
+Another method for doing so is to use the kmeans approach, as discussed in [this blog post](http://blog.ryanwalker.us/2016/01/color-quantization-in-r.html) by [Ryan Walker](http://www.ms.uky.edu/~rwalker/). Here is the comparison between kmeans (on the left) and median cut (on the right) using 4 colors:
+
+<img src="https://raw.githubusercontent.com/joelcarlson/RImagePalette/master/figs/mandrill_k4_median4.png" />
+
 Just for fun
 ============
 
@@ -128,6 +149,8 @@ There are a number of projects that inspired or helped this project along, and t
 
 [Wes Anderson Palettes](https://github.com/karthik/wesanderson) by [Karthik Ram](http://inundata.org).
 
-And [this post](http://blenditbayes.blogspot.com/2014/05/towards-yet-another-r-colour-palette.html) from [Jo Fai Chow](http://www.jofaichow.co.uk/).
+[this blog post](http://blenditbayes.blogspot.com/2014/05/towards-yet-another-r-colour-palette.html) from [Jo Fai Chow](http://www.jofaichow.co.uk/).
+
+and [this blog post](http://blog.ryanwalker.us/2016/01/color-quantization-in-r.html) by [Ryan Walker](http://www.ms.uky.edu/~rwalker/)
 
 Thank you all for your great work!
