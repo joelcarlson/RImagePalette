@@ -22,16 +22,24 @@
 #' display_image(img)
 #' scales::show_col(image_pal(img)(10))
 image_pal <- function(image, choice=mean, volume=FALSE) {
+  #Capture seed as discrete_scale calls image_pal twice -
+  #once for the plot and once for the legend. Without manipulating
+  #the seed, the colors and legend dont match
+  current_seed <- .Random.seed
   function(n) {
-    image_palette(image, n, choice, volume)
+    pal <- image_palette(image, n, choice, volume)
+    .Random.seed <<- current_seed
+    return(pal)
   }
 }
 
 #' @rdname scale_image
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
+#' @importFrom stats runif
 #' @export
 scale_color_image <- function(..., image, n=3, choice=mean, volume=FALSE, discrete=TRUE) {
   if (discrete) {
+    invisible(runif(1)) #To increment seed
     discrete_scale("colour", "image", image_pal(image, choice, volume), ...)
   } else {
     scale_color_gradientn(colours = sort(image_palette(image, n, choice, volume)), ...)
@@ -97,6 +105,7 @@ scale_colour_image <- scale_color_image
 #'
 scale_fill_image <- function (..., image, n=3, choice=mean, volume=FALSE, discrete=TRUE) {
   if (discrete) {
+    invisible(runif(1)) #To increment seed
     discrete_scale("fill", "image", image_pal(image, choice, volume), ...)
   } else {
     scale_fill_gradientn(colours = sort(image_palette(image, n, choice, volume)), ...)
