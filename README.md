@@ -66,7 +66,7 @@ p + theme_bw() + scale_fill_manual(values=lifeAquaticPalette[c(2,3,6)])
 Images as Scales
 ================
 
-`RImagePalette` can create both discrete and continuous scales from images for use with `ggplot2` using the new `scale_color_image` function:
+`RImagePalette` can create both discrete and continuous scales from images for use with `ggplot2` using the new `scale_color_image` (or for plots requiring fills, the `scale_fill_image()`) function:
 
 ``` r
 #Load an image
