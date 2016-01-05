@@ -12,7 +12,19 @@ Very important bugfix in a key pair of functions.
 
 ## R CMD check results
 
-There were no NOTES, ERRORs or WARNINGs.
+There were no ERRORs or WARNINGs.
+
+1 Note
+
+checking CRAN incoming feasibility ... NOTE
+
+Maintainer: 'Joel Carlson <jnkcarlson@gmail.com>'
+
+License components with restrictions and base license permitting such:
+  MIT + file LICENSE
+File 'LICENSE':
+  YEAR:2015
+  COPYRIGHT HOLDER: Joel Carlson
 
 ## Downstream dependencies
 
