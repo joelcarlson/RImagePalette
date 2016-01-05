@@ -1,7 +1,7 @@
 Package: RImagePalette
 Type: Package
 Title: Extract the Colors from Images
-Version: 0.1.0
+Version: 0.1.1
 Date: 2015-12-29
 Author: Joel Carlson
 Maintainer: Joel Carlson <jnkcarlson@gmail.com>
@@ -14,9 +14,9 @@ Depends:
     R (>= 2.1.0)
 Imports:
     ggplot2,
-    jpeg,
-    png
 Suggests:
     testthat,
-    scales
+    scales,
+    jpeg,
+    png
 

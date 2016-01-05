@@ -13,13 +13,13 @@ or \code{readPNG()} are suitable as \code{image}.}
 
 \item{n}{Integer The number of discrete colors to be extracted from the image.}
 
-\item{...Pass}{any of the arguments for \code{image_palette}}
+\item{...}{Pass any of the arguments for \code{image_palette}}
 }
 \description{
 Quantize image into discrete colors using the median cut algorithm
 }
 \details{
-Beware: This feature is experimental, not optimized, and extremely slow for large images.
+Note: This function is extremely slow for large images.
 Takes up to 20 seconds for 500x500 image on a desktop with 2.7GHz processor and 4Gb ram.
 }
 \examples{

@@ -2,13 +2,13 @@
 #'
 #' Quantize image into discrete colors using the median cut algorithm
 #'
-#' Beware: This feature is experimental, not optimized, and extremely slow for large images.
+#' Note: This function is extremely slow for large images.
 #' Takes up to 20 seconds for 500x500 image on a desktop with 2.7GHz processor and 4Gb ram.
 #' @param image Matrix The image from which the palette will be extracted from. Should
 #' be a 3 (or more) dimensional matrix. The output of a function such as \code{readJPG()}
 #' or \code{readPNG()} are suitable as \code{image}.
 #' @param n Integer The number of discrete colors to be extracted from the image.
-#' @param ...Pass any of the arguments for \code{image_palette}
+#' @param ... Pass any of the arguments for \code{image_palette}
 #' @seealso \code{\link{image_palette}}
 #' @export
 #' @examples
@@ -47,9 +47,9 @@ quantize_image <- function(image, n, ...){
   blue_channel <- matrix(rgb_values[seq(3,dims[1]*dims[2]*3,3)], nrow=dims[1], ncol=dims[2], byrow=FALSE)
   #Compile into image
   rgb_image = array(dim=dims)
-  rgb_image [,,1] = red_channel
-  rgb_image [,,2] = green_channel
-  rgb_image [,,3] = blue_channel
+  rgb_image[,,1] = red_channel
+  rgb_image[,,2] = green_channel
+  rgb_image[,,3] = blue_channel
 
   return(rgb_image/255)
 }
