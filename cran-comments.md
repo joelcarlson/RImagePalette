@@ -1,14 +1,8 @@
 ## Release summary
 
- - Fixed issue with cran submission where several functions (barplot, colorRampPalette, image, median, rgb) were not imported from their respective packages.
- Specifically, added the following to NAMESPACE:
+Apologies for the fast resubmission.
 
->  importFrom(grDevices,colorRampPalette)  
->  importFrom(graphics,barplot)  
->  importFrom(graphics,image)  
->  importFrom(stats,median)
-  
- - Removed `\dontrun{}` tags from examples
+Very important bugfix in a key pair of functions.
 
 ## Test environments
 

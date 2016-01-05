@@ -24,7 +24,6 @@ Takes up to 20 seconds for 500x500 image on a desktop with 2.7GHz processor and 
 }
 \examples{
 img <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
-par(mfrow=c(1,2))
 quant_img <- quantize_image(img, n=3)
 display_image(img)
 display_image(quant_img)

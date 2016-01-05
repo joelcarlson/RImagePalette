@@ -13,7 +13,6 @@
 #' @export
 #' @examples
 #' img <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
-#' par(mfrow=c(1,2))
 #' quant_img <- quantize_image(img, n=3)
 #' display_image(img)
 #' display_image(quant_img)
