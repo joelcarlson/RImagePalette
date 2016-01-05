@@ -1,6 +1,8 @@
 RImagePalette
 =============
 
+*Note: If you have installed version 0.1.0 from CRAN, there is a bug in `scale_color_image()` and `scale_fill_image()` where the plot and legend colors do not match. This is fixed in the github version and CRAN version 0.1.1.*
+
 [![cran version](http://www.r-pkg.org/badges/version/RImagePalette)](http://cran.rstudio.com/web/packages/RImagePalette)
 
 ### Extract colors from an image, then use them in plots or for fun!
