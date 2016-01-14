@@ -1,13 +1,11 @@
 RImagePalette
 =============
 
-*Note: If you have installed version 0.1.0 from CRAN, there is a bug in `scale_color_image()` and `scale_fill_image()` where the plot and legend colors do not match. This is fixed in the github version and CRAN version 0.1.1.*
-
 [![cran version](http://www.r-pkg.org/badges/version/RImagePalette)](http://cran.rstudio.com/web/packages/RImagePalette)
 
 ### Extract colors from an image, then use them in plots or for fun!
 
-The `RImagePalette` package is a pure R implementation of the median cut algorithm for extracting the dominant colors from an image. This package lets you use the colors from an image you like to create pretty plots, or to swap colors from one image to another. Play around with this package through an interactive shiny app [here](https://jnkcarlson.shinyapps.io/RImagePaletteShiny)!
+The `RImagePalette` package is a pure R implementation of the median cut algorithm for extracting the dominant colors from an image (in-depth explanation [here](http://joelcarlson.me/2016/01/15/median-cut/)). This package lets you use the colors from an image you like to create pretty plots, or to swap colors from one image to another. Play around with this package through an interactive shiny app [here](https://jnkcarlson.shinyapps.io/RImagePaletteShiny)!
 
 Install from [CRAN](https://cran.r-project.org/web/packages/RImagePalette/index.html) using:
 
