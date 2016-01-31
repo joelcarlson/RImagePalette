@@ -1,7 +1,8 @@
 RImagePalette
 =============
 
-[![cran version](http://www.r-pkg.org/badges/version/RImagePalette)](http://cran.rstudio.com/web/packages/RImagePalette)
+[![cran version](http://www.r-pkg.org/badges/version/RImagePalette)](http://cran.rstudio.com/web/packages/RImagePalette)[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/RImagePalette)](https://github.com/metacran/cranlogs.app)
+
 
 ### Extract colors from an image, then use them in plots or for fun!
 
