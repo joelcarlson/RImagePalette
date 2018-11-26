@@ -24,21 +24,13 @@ quantize_image <- function(image, n, ...){
   #create image palette using median cut algorithm
   pal <- image_palette(image, n, ...)
 
-  #Function to extract euclidean distance between
-  #palette colors, and each pixel of the image
-  distances <- function(palette, pixel){
-    apply(palette, 2, function(x) sqrt(sum((x - pixel)^2)))
-
-  }
-
   #convert hex palette to rgb
   rgb_palette <- col2rgb(pal)
 
-
   #extract the appropriate palette color based on minimum euclidean distance
-  hex_values <- lapply(hex_image, function(x) pal[which.min(distances(rgb_palette, col2rgb(x)))])
+  nn.idx <- index_palette(matrix(image, ncol = 3) * 255, t(rgb_palette))
   #back to rgb to compile into image
-  rgb_values <- col2rgb(hex_values)
+  rgb_values <- col2rgb(pal[nn.idx])
 
   #Extract components
   red_channel <- matrix(rgb_values[seq(1,dims[1]*dims[2]*3,3)], nrow=dims[1], ncol=dims[2], byrow=FALSE)
@@ -51,4 +43,25 @@ quantize_image <- function(image, n, ...){
   rgb_image[,,3] = blue_channel
 
   return(rgb_image/255)
+}
+
+
+#' Index a palette from existing colour values
+#'
+#' Returns the index of the nearest RGB value from a given palettized version.
+#'
+#' @param rgb_val matrix of RGB values
+#' @param rgb_pal matrix of RGB palette
+#'
+#' @return index of `rgb_val` in `rgb_pal`
+#' @export
+#' @importFrom RANN nn2
+index_palette <- function(rgb_val, rgb_pal) {
+  as.vector(RANN::nn2(matrix(as.numeric(rgb_pal), ncol = 3, byrow = FALSE),
+                   matrix(as.numeric(rgb_val), ncol = 3, byrow = FALSE), k = 1)$nn.idx)
+
+  ## if we used nabor it would go like this:
+  #lookup <- nabor::WKNNF(matrix(as.numeric(rgb_pal), ncol = 3, byrow = TRUE))
+  #idx <- lookup$query(matrix(as.numeric(rgb_pal), ncol = 3, byrow = TRUE), k = 1, eps = 0, radius = 0)
+
 }
