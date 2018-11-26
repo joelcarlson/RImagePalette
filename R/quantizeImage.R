@@ -11,7 +11,6 @@
 #' @param ... Pass any of the arguments for \code{image_palette}
 #' @seealso \code{\link{image_palette}}
 #' @export
-#' @importFrom RANN nn2
 #' @examples
 #' img <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
 #' quant_img <- quantize_image(img, n=3)
@@ -29,15 +28,9 @@ quantize_image <- function(image, n, ...){
   rgb_palette <- col2rgb(pal)
 
   #extract the appropriate palette color based on minimum euclidean distance
-  idx <- RANN::nn2(matrix(as.numeric(rgb_palette), ncol = 3, byrow = TRUE),
-                   matrix(as.numeric(col2rgb(hex_image)), ncol = 3, byrow = TRUE), k = 1)
-
-  ## if we used nabor it would go like this:
-  #lookup <- nabor::WKNNF(matrix(as.numeric(rgb_palette), ncol = 3, byrow = TRUE))
-  #idx <- lookup$query(matrix(as.numeric(col2rgb(hex_image)), ncol = 3, byrow = TRUE), k = 1, eps = 0, radius = 0)
-
+  nn.idx <- index_palette(matrix(image, ncol = 3) * 255, t(rgb_palette))
   #back to rgb to compile into image
-  rgb_values <- col2rgb(pal[idx$nn.idx])
+  rgb_values <- col2rgb(pal[nn.idx])
 
   #Extract components
   red_channel <- matrix(rgb_values[seq(1,dims[1]*dims[2]*3,3)], nrow=dims[1], ncol=dims[2], byrow=FALSE)
@@ -50,4 +43,25 @@ quantize_image <- function(image, n, ...){
   rgb_image[,,3] = blue_channel
 
   return(rgb_image/255)
+}
+
+
+#' Index a palette from existing colour values
+#'
+#' Returns the index of the nearest RGB value from a given palettized version.
+#'
+#' @param rgb_val matrix of RGB values
+#' @param rgb_pal matrix of RGB palette
+#'
+#' @return index of `rgb_val` in `rgb_pal`
+#' @export
+#' @importFrom RANN nn2
+index_palette <- function(rgb_val, rgb_pal) {
+  as.vector(RANN::nn2(matrix(as.numeric(rgb_pal), ncol = 3, byrow = FALSE),
+                   matrix(as.numeric(rgb_val), ncol = 3, byrow = FALSE), k = 1)$nn.idx)
+
+  ## if we used nabor it would go like this:
+  #lookup <- nabor::WKNNF(matrix(as.numeric(rgb_pal), ncol = 3, byrow = TRUE))
+  #idx <- lookup$query(matrix(as.numeric(rgb_pal), ncol = 3, byrow = TRUE), k = 1, eps = 0, radius = 0)
+
 }
