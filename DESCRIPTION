@@ -13,10 +13,10 @@ LazyData: TRUE
 Depends:
     R (>= 2.1.0)
 Imports:
-    ggplot2
+    ggplot2,
+    RANN
 Suggests:
     testthat,
     scales,
     jpeg,
     png
-

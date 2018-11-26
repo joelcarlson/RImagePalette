@@ -11,6 +11,7 @@
 #' @param ... Pass any of the arguments for \code{image_palette}
 #' @seealso \code{\link{image_palette}}
 #' @export
+#' @importFrom RANN nn2
 #' @examples
 #' img <- jpeg::readJPEG(system.file("img", "Rlogo.jpg", package="jpeg"))
 #' quant_img <- quantize_image(img, n=3)
@@ -24,21 +25,19 @@ quantize_image <- function(image, n, ...){
   #create image palette using median cut algorithm
   pal <- image_palette(image, n, ...)
 
-  #Function to extract euclidean distance between
-  #palette colors, and each pixel of the image
-  distances <- function(palette, pixel){
-    apply(palette, 2, function(x) sqrt(sum((x - pixel)^2)))
-
-  }
-
   #convert hex palette to rgb
   rgb_palette <- col2rgb(pal)
 
-
   #extract the appropriate palette color based on minimum euclidean distance
-  hex_values <- lapply(hex_image, function(x) pal[which.min(distances(rgb_palette, col2rgb(x)))])
+  idx <- RANN::nn2(matrix(as.numeric(rgb_palette), ncol = 3, byrow = TRUE),
+                   matrix(as.numeric(col2rgb(hex_image)), ncol = 3, byrow = TRUE), k = 1)
+
+  ## if we used nabor it would go like this:
+  #lookup <- nabor::WKNNF(matrix(as.numeric(rgb_palette), ncol = 3, byrow = TRUE))
+  #idx <- lookup$query(matrix(as.numeric(col2rgb(hex_image)), ncol = 3, byrow = TRUE), k = 1, eps = 0, radius = 0)
+
   #back to rgb to compile into image
-  rgb_values <- col2rgb(hex_values)
+  rgb_values <- col2rgb(pal[idx$nn.idx])
 
   #Extract components
   red_channel <- matrix(rgb_values[seq(1,dims[1]*dims[2]*3,3)], nrow=dims[1], ncol=dims[2], byrow=FALSE)
